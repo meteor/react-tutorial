@@ -13,7 +13,7 @@ sidebar_categories:
     - simple-todos/01-creating-app
 github_repo: 'meteor/react-tutorial'
 
-url: http://docs.meteor.com/
+url: http://react-tutorial.meteor.com/
 root: /
 
 source_dir: tutorial
