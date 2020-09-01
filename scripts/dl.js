@@ -1,7 +1,5 @@
 /* global hexo */
 
-var parseTagOptions = require('./parseTagOptions');
-
 hexo.extend.tag.register('dtdd', function(args, content) {
   var options = parseTagOptions(args);
 

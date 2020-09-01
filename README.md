@@ -24,10 +24,6 @@ git submodule update --init
 
 Generally you should not commit changes to the submodules, unless you know what you are doing.
 
-#### Generating `data.js`
-
-To generate the api boxes, the site uses a file `data/data.js` which is generated from the js docs in the [Meteor source code](https://github.com/meteor/meteor). This will automatically happen whenever you start your local hexo server.
-
 #### Starting hexo
 
 - Install [nvm](https://github.com/nvm-sh/nvm) to manage your Node.js (yes, this is an hexo project and not Meteor, in Meteor you don't need to worry about Node.js versions at all)
