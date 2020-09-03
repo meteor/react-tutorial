@@ -11,6 +11,7 @@ sidebar_categories:
   Simple Todos:
     - simple-todos/00-introduction
     - simple-todos/01-creating-app
+    - simple-todos/02-collections
 github_repo: 'meteor/react-tutorial'
 
 url: http://react-tutorial.meteor.com/

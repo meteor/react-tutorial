@@ -1,10 +1,10 @@
 ---
-title: 1 - Creating the app
+title: "1: Creating the app"
 ---
 
 In this tutorial we will build a simple to-do tasks app using [React](https://reactjs.org) with the Meteor platform. Meteor works out-of-the-box with several other frameworks like [Blaze](https://guide.meteor.com/blaze.html), [Angular](https://guide.meteor.com/angular.html) and [Vue](https://guide.meteor.com/vue.html). 
 
-## Step 1.1: Create Meteor Project
+## 1.1: Create Meteor Project
 
 First we need to install Meteor and the easiest way to setup Meteor with React is by using the command:
 
@@ -32,11 +32,11 @@ Most of your React application will be located inside the `imports` directory, a
 > Note: in previous versions of Meteor, the `imports` directory was special because files outside the `imports` directory were loaded automatically when the application started, whereas files inside the `imports` directory were only loaded when imported using an `import` declaration or a `require` statement. As of Meteor 1.7, the entry point for both client and server JavaScript is determined by the `meteor.mainModule` section in `package.json`. In other words, as far as JavaScript code is concerned, the entire application now behaves as if it was inside an `imports` directory, so you don't need to worry as much about the `imports` directory now.
 
 
-## Step 1.2: Create Task Component
+## 1.2: Create Task Component
 
 After we have all the files set, we can create our first React component for our To-Do App.
 
-File: `imports/ui/Task.jsx`
+`imports/ui/Task.jsx`
 ```javascript
 import React from 'react';
  
@@ -45,11 +45,11 @@ export const Task = ({ task }) => {
 };
 ```
 
-## Step 1.3: Create Sample Tasks
+## 1.3: Create Sample Tasks
 
 Let's define some sample data which will be used shortly. Add an array of `tasks`.
 
-File: `imports/ui/App.jsx`
+`imports/ui/App.jsx`
 ```javascript
 import React from 'react';
  
@@ -61,11 +61,11 @@ const tasks = [
  
 export const App = () => ..
 ```
-## Step 1.4: Render Sample Tasks
+## 1.4: Render Sample Tasks
 
 Now we can implement some simple rendering logic with React. We can now use our previous `Task` component to render our list items.
 
-File: `imports/ui/App.jsx`
+`imports/ui/App.jsx`
 ```javascript
 import React from 'react';
 import { Task } from './Task';
