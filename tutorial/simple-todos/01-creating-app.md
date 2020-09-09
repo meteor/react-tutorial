@@ -61,7 +61,7 @@ export const Task = ({ task }) => {
 
 As this component will be inside a list you are returning a `li` element.
 
-## 1.3: Create Sample Tasks
+## 1.4: Create Sample Tasks
 
 As you are not connecting to your server and your database yet let's define some sample data which will be used shortly to render a list of tasks. It will be an array, and you can call it `tasksData`.
 
@@ -80,7 +80,7 @@ export const App = () => ...
 
 You can put anything as your `text` property on each task. Be creative!
 
-## 1.4: Render Sample Tasks
+## 1.5: Render Sample Tasks
 
 Now we can implement some simple rendering logic with React. We can now use our previous `Task` component to render our list items.
 
