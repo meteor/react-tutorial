@@ -26,7 +26,7 @@ meteor npm install --save bcrypt
 Now we can create a default user for our app, if we do not find the `meteorite` username, we just create a new one.
 
 `server/main.js`
-```javascript
+```js
 import Tasks from '/imports/api/tasks';
  
 Meteor.startup(() => {
@@ -49,7 +49,7 @@ We need to input the credentials and authenticate the user at some point, for th
 We can implement a very simple one using `useState` hooks.
 
 `imports/ui/LoginForm.jsx`
-```javascript
+```js
 import React, { useState } from 'react';
  
 export const LoginForm = () => {
@@ -99,7 +99,7 @@ Our app should only allow an authenticated user to access its task management fe
 We can accomplish that quite easily.
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import { Task } from './Task';
 import Tasks from '/imports/api/tasks';
 import { TaskForm } from './TaskForm';
@@ -169,7 +169,7 @@ Now we add some basic styling, so our app gets more welcoming.
 In order to better manage our tasks, every task should have an owner.
 
 `imports/ui/TaskForm.jsx`
-```javascript
+```js
 import React, { useState } from 'react';
 import Tasks from '/imports/api/tasks';
  
@@ -193,7 +193,7 @@ export const TaskForm = ({ user }) => {
 We also can better organize our tasks by showing the username of the owner.
 
 `imports/ui/App.jsx`
-```javascript
+```js
         />) }
       </ul>
  

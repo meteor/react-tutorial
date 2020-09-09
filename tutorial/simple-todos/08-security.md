@@ -19,7 +19,7 @@ When the app refreshes, the task list will be empty. Without the `autopublish` p
 For now let's add a publication for all tasks.
 
 `imports/api/tasks.js`
-```javascript
+```js
       }
     });
   }
@@ -35,7 +35,7 @@ if (Meteor.isServer) {
 Then we can quickly subscribe to tha publication.
 
 `imports/ui/App.jsx`
-```javascript
+```js
     _.set(filter, 'checked', false);
   }
  
@@ -62,7 +62,7 @@ Calling `Meteor.publish` on the server registers a publication named "tasks". Wh
 Let's add a new property to tasks called `isPrivate` and write a method for setting it.
 
 `imports/api/tasks.js`
-```javascript
+```js
         isChecked
       }
     });
@@ -90,7 +90,7 @@ Let's add a new property to tasks called `isPrivate` and write a method for sett
 Now we just setup some wiring up to our `Task Component` and add a toggleable button.
 
 `imports/ui/Task.jsx`
-```javascript
+```js
 import React from 'react';
 import classnames from 'classnames';
  
@@ -113,7 +113,7 @@ export const Task = ({ task, onCheckboxClick, onDeleteClick, onTogglePrivateClic
 We need a CSS class for future design work as well.
 
 `imports/ui/App.jsx`
-```javascript
+```js
   Meteor.call('tasks.setChecked', _id, !isChecked);
 };
  
@@ -138,7 +138,7 @@ export const App = () => {
 We should only publish tasks visible to the user, that is, if they are not private or if they are owned by the current user.
 
 `imports/api/tasks.js`
-```javascript
+```js
 });
  
 if (Meteor.isServer) {
@@ -158,7 +158,7 @@ if (Meteor.isServer) {
 Only the owner of a task should be able to change certain things.
 
 `imports/api/tasks.js`
-```javascript
+```js
   'tasks.remove'(taskId) {
     check(taskId, String);
  
@@ -194,7 +194,7 @@ Only the owner of a task should be able to change certain things.
 At this point of development we do not need this boilerplate anymore.
 
 `server/main.js`
-```javascript
+```js
 import { Meteor } from 'meteor/meteor';
 import '/imports/api/tasks';
  

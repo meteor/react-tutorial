@@ -13,7 +13,7 @@ The `useState` function returns an array pair, where the first element is our va
 Bear in mind that the names used for the constants do not belong to the React API, you can name them whatever you like.
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import React, { useState } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Task } from './Task';
@@ -61,7 +61,7 @@ This is straightforward, but since it quite didn't look right we made some impro
 > Remember, we use the `Boolean` cast in case we have `undefined` values. We also use the `readOnly` attribute since we are not using `onChange`.
 
 `imports/ui/App.jsx`
-```javascript
+```js
     <div className="simple-todos-react">
       <h1>Welcome to Meteor!</h1>
  
@@ -99,7 +99,7 @@ meteor npm install --save-dev lodash
 Now, if the user has selected the `checkbox` to hide completed tasks, we will include our `checked: false` clause to the query.
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import React, { useState } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import _ from 'lodash';
@@ -129,7 +129,7 @@ export const App = () => {
 Update the App component in order to calculate the number of incomplete tasks.
 
 `imports/ui/App.jsx`
-```javascript
+```js
     _.set(filter, 'checked', false);
   }
  
@@ -147,7 +147,7 @@ Update the App component in order to calculate the number of incomplete tasks.
 Finally we just modify our header to display the render count.
 
 `imports/ui/App.jsx`
-```javascript
+```js
  
   return (
     <div className="simple-todos-react">

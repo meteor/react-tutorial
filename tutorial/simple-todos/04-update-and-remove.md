@@ -15,7 +15,7 @@ First, we need to add a `<checkbox>` element to our `Task` component.
 > You are also invited to experient and see how the app behaves for learning purposes.
 
 `imports/ui/Task.jsx`
-```javascript
+```js
 import React from 'react';
  
 export const Task = ({ task, onCheckboxClick }) => {
@@ -38,7 +38,7 @@ export const Task = ({ task, onCheckboxClick }) => {
 Now we can update our task document toggling its state from `checked: false` to `checked: true` and vice-versa.
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import Tasks from '/imports/api/tasks';
 import { TaskForm } from './TaskForm';
  
@@ -68,7 +68,7 @@ export const App = () => {
 We can remove our task with just a few lines of code.
 
 `imports/ui/Task.jsx`
-```javascript
+```js
 import React from 'react';
  
 export const Task = ({ task, onCheckboxClick, onDeleteClick }) => {
@@ -91,7 +91,7 @@ npm i classnames
 ```
 
 `imports/ui/App.jsx`
-```javascript
+```js
 const deleteTask = ({ _id }) => Tasks.remove(_id);
  
 export const App = () => {
@@ -165,7 +165,7 @@ If our task is `checked` then the respective class will be applied to it.
 Let's add proper classes to our parent elements.
 
 `imports/ui/Task.jsx`
-```javascript
+```js
 import React from 'react';
 import classnames from 'classnames';
  
@@ -196,7 +196,7 @@ Finally, we add the CSS styling which will normalize and differentiate our check
 > You can learn more about CSS Flexible Box Module [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox).
 
 `imports/ui/App.jsx`
-```javascript
+```js
   const tasks = useTracker(() => Tasks.find({}, { sort: { createdAt: -1 } }).fetch());
  
   return (

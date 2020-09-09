@@ -13,7 +13,7 @@ First we need to create a simple form component to encapsulate our logic. As you
 Please note the _array destructuring_ `[text, setText]`, where `text` is the stored value which we want to use, which in this case will be a _string_; and `setText` is a _function_ used to update that value.
 
 `imports/ui/TaskForm.jsx`
-```javascript
+```js
 import React, { useState } from 'react';
  
 export const TaskForm = () => {
@@ -37,7 +37,7 @@ export const TaskForm = () => {
 Then we can simply add this to our `App` component:
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import { useTracker } from 'meteor/react-meteor-data';
 import { Task } from './Task';
 import Tasks from '/imports/api/tasks';
@@ -80,7 +80,7 @@ As you can see we are using the `useState` React Hook to store the `value` of ou
 > In more complex applications you might want to implement some `debounce` or `throttle` logic if there are too many calculations happening between potentially frequent events like `onChange`. There are libraries which will help you with this, like [Lodash](https://lodash.com/), for instance.
 
 `imports/ui/TaskForm.jsx`
-```javascript
+```js
 import React, { useState } from 'react';
 import Tasks from '/imports/api/tasks';
  
@@ -115,7 +115,7 @@ export const TaskForm = () => {
 Now we just need to make a change which will make our hypothetical user very happy: we need to show the newest tasks first. We can accomplish quite quickly by sorting our [Mongo](https://guide.meteor.com/collections.html#mongo-collections) query.
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import { TaskForm } from './TaskForm';
  
 export const App = () => {

@@ -38,7 +38,7 @@ Where are these two tests coming from? Every new Meteor application includes a `
 However, if you would prefer to split your tests across multiple modules, you can do that too. Let's add a new test module called `imports/api/tasks.tests.js`:
 
 `imports/api/tasks.tests.js`
-```javascript
+```js
 import { Meteor } from 'meteor/meteor';
  
 if (Meteor.isServer) {
@@ -56,7 +56,7 @@ if (Meteor.isServer) {
 In any test we need to ensure the database is in the state we expect before beginning. We can use Mocha's `beforeEach` construct to do that easily:
 
 `imports/api/tasks.tests.js`
-```javascript
+```js
 import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
  
@@ -91,7 +91,7 @@ Here we create a single task that's associated with a random userId that'll be d
 Now we can write the test to call the `tasks.remove` method "as" that user and verify the task got deleted:
 
 `imports/api/tasks.tests.js`
-```javascript
+```js
 import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
 import { assert } from 'chai';
@@ -123,7 +123,7 @@ import { Tasks } from './tasks.js';
 The only remaining step is to import this new test module into the main `tests/main.js` module:
 
 `tests/main.js`
-```javascript
+```js
 import assert from "assert";
  
 import "../imports/api/tasks.tests.js";

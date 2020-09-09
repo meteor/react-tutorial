@@ -2,23 +2,37 @@
 title: "1: Creating the app"
 ---
 
-In this tutorial we will build a simple to-do tasks app using [React](https://reactjs.org) with the Meteor platform. Meteor works out-of-the-box with several other frameworks like [Blaze](https://guide.meteor.com/blaze.html), [Angular](https://guide.meteor.com/angular.html) and [Vue](https://guide.meteor.com/vue.html). 
+## 1.1: Install Meteor
+First we need to install Meteor.
 
-## 1.1: Create Meteor Project
+If you running on OSX or Linux run this command in your terminal:
+```shell
+curl https://install.meteor.com/ | sh
+```
 
-First we need to install Meteor and the easiest way to setup Meteor with React is by using the command:
+If you are on Windows:
+First install [Chocolatey](https://chocolatey.org/install), then run this command using an Administrator command prompt:
+```shell
+choco install meteor
+```
+
+> You can check more details about Meteor installation [here](https://www.meteor.com/install)
+
+## 1.2: Create Meteor Project
+
+The easiest way to setup Meteor with React is by using the command `meteor create` with the option `--react` and your project name:
 
 ```
 meteor create --react simple-todos-react
 ```
 
-After this command is run, Meteor will create several boilerplate files for you.
+Meteor will create all the necessary files for you. 
 
-These are the files responsible for bootstrapping your client user interface:
+The files located in the `client` directory are setting up your client side (web), you can see for example `client/main.jsx` where Meteor is rendering your App main component into the HTML.
 
-For now you don't need to worry about the files located in the `client` directory, Meteor has already set them up for you.
+Also, check the `server` directory where Meteor is setting up the server side (Node.js), you can see the `server/main.js` is initializing your MongoDB database with some data. You don't need to install MongoDB as Meteor provides an embedded version of it ready for you to use.
 
-You can run your Meteor app using: 
+You can now run your Meteor app using: 
 
 ```
 meteor run
@@ -26,18 +40,18 @@ meteor run
 
 Don't worry, Meteor will keep your app in sync with all your changes from now on.
 
-Most of your React application will be located inside the `imports` directory, and this file is the entry point of your React To-do app:
+Your React code will be located inside the `imports/ui` directory, and `App.jsx` file is the root component of your React To-do app.
 
+Take a quick look in all the files created by Meteor, you don't need to understand them now but it's good to know where they are.
 
-> Note: in previous versions of Meteor, the `imports` directory was special because files outside the `imports` directory were loaded automatically when the application started, whereas files inside the `imports` directory were only loaded when imported using an `import` declaration or a `require` statement. As of Meteor 1.7, the entry point for both client and server JavaScript is determined by the `meteor.mainModule` section in `package.json`. In other words, as far as JavaScript code is concerned, the entire application now behaves as if it was inside an `imports` directory, so you don't need to worry as much about the `imports` directory now.
+## 1.3: Create Task Component
 
+You will make your first change now. Create a new file called `Task.jsx` in your `ui` folder.
 
-## 1.2: Create Task Component
-
-After we have all the files set, we can create our first React component for our To-Do App.
+This file will export a React component called `Task` that will represent one task in your To-Do list. 
 
 `imports/ui/Task.jsx`
-```javascript
+```js
 import React from 'react';
  
 export const Task = ({ task }) => {
@@ -45,40 +59,53 @@ export const Task = ({ task }) => {
 };
 ```
 
+As this component will be inside a list you are returning a `li` element.
+
 ## 1.3: Create Sample Tasks
 
-Let's define some sample data which will be used shortly. Add an array of `tasks`.
+As you are not connecting to your server and your database yet let's define some sample data which will be used shortly to render a list of tasks. It will be an array, and you can call it `tasksData`.
 
 `imports/ui/App.jsx`
-```javascript
+```js
 import React from 'react';
  
-const tasks = [
+const tasksData = [
   {_id: 1, text: 'First Task'},
   {_id: 2, text: 'Second Task'},
   {_id: 3, text: 'Third Task'},
 ];
  
-export const App = () => ..
+export const App = () => ...
 ```
+
+You can put anything as your `text` property on each task. Be creative!
+
 ## 1.4: Render Sample Tasks
 
 Now we can implement some simple rendering logic with React. We can now use our previous `Task` component to render our list items.
 
+In React you can use `{` `}` to write Javascript code between them.
+
+See below that you will use a `.map` function from the `Array` object to iterate over your sample tasks.
+
 `imports/ui/App.jsx`
-```javascript
+```js
 import React from 'react';
 import { Task } from './Task';
  
-const tasks = ..
+const tasksData = ..;
 
 export const App = () => (
   <div>
     <h1>Welcome to Meteor!</h1>
  
     <ul>
-      { tasks.map(task => <Task key={ task._id } task={ task }/>) }
+      { tasksData.map(task => <Task key={ task._id } task={ task }/>) }
     </ul>
   </div>
 );
 ```
+
+Remember to add the `key` property to your task, otherwise React will emit a warning as it will see many components of the same type as siblings and without a key it will be hard to React to re-render one of them if necessary 
+
+> You can read more about React and Keys [here](https://reactjs.org/docs/lists-and-keys.html#keys).

@@ -13,7 +13,7 @@ In this step we will implement all the necessary code to have a basic collection
 We can create a new tasks collection by creating a module at `imports/api/tasks.js` which instantiates a new Mongo collection and exports it.
 
 `imports/api/tasks.js`
-```javascript
+```js
 import { Mongo } from 'meteor/mongo';
  
 export default new Mongo.Collection('tasks');
@@ -30,7 +30,7 @@ For our collection to work we need to import it in the server so it sets some pl
 Now it is easy to check if there is data or not in our collection, otherwise we can insert some sample data easily as well.
 
 `server/main.js`
-```javascript
+```js
 import { Meteor } from 'meteor/meteor';
 import Tasks from '/imports/api/tasks';
  

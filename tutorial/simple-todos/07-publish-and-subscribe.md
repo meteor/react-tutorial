@@ -46,7 +46,7 @@ If the result matches that of the server everything remains as is, otherwise the
 > You can read more about Optimistic UI [here](https://blog.meteor.com/optimistic-ui-with-meteor-67b5a78c3fcf).
 
 `imports/api/tasks.js`
-```javascript
+```js
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
  
@@ -100,7 +100,7 @@ Meteor.methods({
 As we have defined our methods, we need to update the places we were operating the collection to use them instead.
 
 `server/main.js`
-```javascript
+```js
 import { Meteor } from 'meteor/meteor';
 import { Tasks } from '/imports/api/tasks';
  
