@@ -7,8 +7,10 @@ Meteor React Tutorial is where you learn the basics of Meteor with React.
 If you want to know more about Meteor check our [website](https://www.meteor.com)
 
 A few tips before you start:
-- If you want to check the final code you can always go to the [`src`](https://github.com/meteor/react-tutorial/tree/master/src) folder.
-- Each folder inside [`src`](https://github.com/meteor/react-tutorial/tree/master/src) folder is a Meteor app, you can run it if you want.
+- If you want to check the final code of each step you can always go to the [`src`](https://github.com/meteor/react-tutorial/tree/master/src) folder.
+- Each folder inside [`src`](https://github.com/meteor/react-tutorial/tree/master/src) folder is a tutorial and inside each you have one folder for each step final state. Each step folder is a Meteor app, you can run it if you want.
+  - Install it: `meteor npm install`
+  - Run it: `meteor`
 - When you see `..` in the code samples this means that we are not showing all the code on this file or function. 
 
 
