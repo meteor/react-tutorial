@@ -12,6 +12,8 @@ First we need to create a simple form component to encapsulate our logic. As you
 
 Please note the _array destructuring_ `[text, setText]`, where `text` is the stored value which we want to use, which in this case will be a _string_; and `setText` is a _function_ used to update that value.
 
+Create a new file `TaskForm.jsx` in your `ui` folder.
+
 `imports/ui/TaskForm.jsx`
 ```js
 import React, { useState } from 'react';
@@ -34,38 +36,38 @@ export const TaskForm = () => {
 
 ## 3.2: Update the App component
 
-Then we can simply add this to our `App` component:
+Then we can simply add this to our `App` component below your list of tasks:
 
 `imports/ui/App.jsx`
 ```js
 import { useTracker } from 'meteor/react-meteor-data';
 import { Task } from './Task';
-import Tasks from '/imports/api/tasks';
+import { TasksCollection } from '/imports/api/TasksCollection';
 import { TaskForm } from './TaskForm';
  
 export const App = () => {
-  const tasks = useTracker(() => Tasks.find({}).fetch());
-  ..
+  const tasks = useTracker(() => TasksCollection.find({}).fetch());
+
+  return (
+    <div>
+      <h1>Welcome to Meteor!</h1>
+
       <ul>
         { tasks.map(task => <Task key={ task._id } task={ task }/>) }
       </ul>
- 
       <TaskForm/>
     </div>
   );
 };
+
 ```
 
 ## 3.3: Update the Stylesheet
 
-You also can style it, for now we only need some margin at the top so the form doesn't seem a little off the mark.
+You also can style it, for now we only need some margin at the top so the form doesn't seem a little off the mark. Add the CSS class `.task-form`, this needs to be the same name in your `className` attribute in the form component.
 
 `client/main.css`
 ```css
-  padding: 10px;
-  font-family: sans-serif;
-}
- 
 .task-form {
   margin-top: 1rem;
 }
@@ -73,28 +75,30 @@ You also can style it, for now we only need some margin at the top so the form d
 
 ## 3.4: Add Submit Handler
 
-Now we can attach our submit handler to our form using the `onSubmit` event; and also plug our React Hook into the `onChange` event present in our input element.
+Now you can attach a submit handler to your form using the `onSubmit` event; and also plug your React Hook into the `onChange` event present in the input element.
 
-As you can see we are using the `useState` React Hook to store the `value` of our `<input>` element. Note that we also need to set our `value` attribute to the `text` constant as well, this will allow the `input`element to stay in sync with our hook.
+As you can see you are using the `useState` React Hook to store the `value` of your `<input>` element. Note that you also need to set your `value` attribute to the `text` constant as well, this will allow the `input` element to stay in sync with our hook.
 
 > In more complex applications you might want to implement some `debounce` or `throttle` logic if there are too many calculations happening between potentially frequent events like `onChange`. There are libraries which will help you with this, like [Lodash](https://lodash.com/), for instance.
 
 `imports/ui/TaskForm.jsx`
 ```js
 import React, { useState } from 'react';
-import Tasks from '/imports/api/tasks';
+import { TasksCollection } from '/imports/api/TasksCollection';
  
 export const TaskForm = () => {
   const [text, setText] = useState("");
- 
-  const handleSubmit = () => {
+  
+  const handleSubmit = e => {
+    e.preventDefault();
+
     if (!text) return;
- 
-    Tasks.insert({
+
+    TasksCollection.insert({
       text: text.trim(),
       createdAt: new Date()
     });
- 
+
     setText("");
   };
  
@@ -108,19 +112,32 @@ export const TaskForm = () => {
       />
  
       <button type="submit">Add Task</button>
+    </form>
+  );
+};
 ```
+
+Also insert a date `createdAt` in your `task` document so you know when each task was created.
 
 ## 3.5: Show Newest Tasks First
 
-Now we just need to make a change which will make our hypothetical user very happy: we need to show the newest tasks first. We can accomplish quite quickly by sorting our [Mongo](https://guide.meteor.com/collections.html#mongo-collections) query.
+Now you just need to make a change which will make users happy: we need to show the newest tasks first. We can accomplish quite quickly by sorting our [Mongo](https://guide.meteor.com/collections.html#mongo-collections) query.
 
 `imports/ui/App.jsx`
 ```js
-import { TaskForm } from './TaskForm';
+..
  
 export const App = () => {
-  const tasks = useTracker(() => Tasks.find({}, { sort: { createdAt: -1 } }).fetch());
- 
-  return (
-    <div>
+  const tasks = useTracker(() => TasksCollection.find({}, { sort: { createdAt: -1 } }).fetch());
+ ..
 ```
+
+Your app should look like this:
+
+<img width="200px" src="/simple-todos/assets/step03-form-new-task.png"/>
+
+<img width="200px" src="/simple-todos/assets/step03-new-task-on-list.png"/>
+
+> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step03) 
+
+In the next step we are going to update your tasks state and provide a way for users to remove tasks.
