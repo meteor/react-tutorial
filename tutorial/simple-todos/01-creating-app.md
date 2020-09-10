@@ -63,13 +63,13 @@ As this component will be inside a list you are returning a `li` element.
 
 ## 1.4: Create Sample Tasks
 
-As you are not connecting to your server and your database yet let's define some sample data which will be used shortly to render a list of tasks. It will be an array, and you can call it `tasksData`.
+As you are not connecting to your server and your database yet let's define some sample data which will be used shortly to render a list of tasks. It will be an array, and you can call it `tasks`.
 
 `imports/ui/App.jsx`
 ```js
 import React from 'react';
  
-const tasksData = [
+const tasks = [
   {_id: 1, text: 'First Task'},
   {_id: 2, text: 'Second Task'},
   {_id: 3, text: 'Third Task'},
@@ -93,14 +93,14 @@ See below that you will use a `.map` function from the `Array` object to iterate
 import React from 'react';
 import { Task } from './Task';
  
-const tasksData = ..;
+const tasks = ..;
 
 export const App = () => (
   <div>
     <h1>Welcome to Meteor!</h1>
  
     <ul>
-      { tasksData.map(task => <Task key={ task._id } task={ task }/>) }
+      { tasks.map(task => <Task key={ task._id } task={ task }/>) }
     </ul>
   </div>
 );
@@ -109,3 +109,42 @@ export const App = () => (
 Remember to add the `key` property to your task, otherwise React will emit a warning as it will see many components of the same type as siblings and without a key it will be hard to React to re-render one of them if necessary 
 
 > You can read more about React and Keys [here](https://reactjs.org/docs/lists-and-keys.html#keys).
+
+Remove the `Hello` and `Info` from your `App` component, remember to also remove the imports for them in top of the file. Remove the `Hello.jsx` and `Info.jsx` files as well.
+
+## 1.6 Mobile look
+
+Let's see how your app is looking on Mobile. You can simulate a mobile environment `right clicking` your app in the browser (we are assuming you are using Google Chrome as it is the most popular browser today) and then `inspect`, this will open a new window inside your browser called `Dev Tools`. In the `Dev Tools` you have a small icon showing a Mobile device and a Tablet, see where this icon is:
+
+<img width="500px" src="/simple-todos/assets/step01-dev-tools-mobile-toggle.png"/>
+
+Click on it and then select the phone that you want to simulate and in the top bar.
+
+> You can also check your app in your cellphone, you can connect to your App using your local IP in the navigation browser of your mobile browser.
+>
+> This command should print your local IP for you on Unix systems at least
+`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'`
+
+You are going to see something like this:
+
+<img width="200px" src="/simple-todos/assets/step01-mobile-without-meta-tags.png"/>
+
+As you can see everything is small, that is because we are not adjusting the view port for mobile devices, you can fix this and other similar issues by adding these lines to your `client/main.html` file, inside the `head` tag, after the `title`.
+
+`client/main.html`
+```html
+  <meta charset="utf-8"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+  <meta
+      name="viewport"
+      content="width=device-width, height=device-height, viewport-fit=cover, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+  />
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+```
+
+Now your app should look like this:
+
+<img width="200px" src="/simple-todos/assets/step01-mobile-with-meta-tags.png"/>
+
+> You can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step01) 

@@ -4,8 +4,6 @@ The Meteor Tutorial app.
 
 Use it to share a single todo list with your friends. The list updates on everyone's screen in real time, and you can make tasks private if you don't want others to see them.
 
-Learn how to build this app by following the [Meteor Tutorial](https://www.meteor.com/tutorials/react/creating-an-app).
-
-Read more about building apps with Meteor in the [Meteor Guide](http://guide.meteor.com).
+Learn how to build this app by following the [Meteor React Tutorial](https://react-tutorial.meteor.com).
 
 ![screenshot](screenshot.png)
