@@ -61,7 +61,7 @@ export const App = () => {
   ..
 ```
 
-Your app should looks like this:
+Your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step04-checkbox.png"/>
 
@@ -105,107 +105,10 @@ export const App = () => {
 }
 ```
 
-## 4.4: Style it
+Your app should look like this:
 
-Our user interface up until this point has looked quite ugly. Let's add some basic styling which will serve as the foundation for a more professional looking app.
+<img width="200px" src="/simple-todos/assets/step04-delete-button.png"/>
 
-First, let's install the `classnames` package which helps us manage conditional styling:
+> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step04) 
 
-```
-meteor npm install classnames
-```
-
-> You should always use `meteor npm` instead of only `npm` so you always use the `npm` version pinned by Meteor, this helps you to avoid problems due to different versions of npm installing different modules.
-
-If our task is `checked` then the respective class will be applied to it.
-
-`client/main.css`
-
-```css
-.simple-todos-react {
-  margin: 0 auto;
-  max-width: 512px;
-}
-
-.simple-todos-react .tasks {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.simple-todos-react .tasks .task {
-  display: flex;
-  align-items: center;
-  height: 32px;
-}
-
-.simple-todos-react .tasks .task span {
-  flex-grow: 1;
-}
-
-.simple-todos-react .tasks .task button {
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  border: none;
-}
-
-.simple-todos-react .tasks .task.checked span {
-  text-decoration: line-through;
-}
-
-.simple-todos-react .task-form {
-  margin-top: 1rem;
-  display: flex;
-}
-
-.simple-todos-react .task-form input {
-  flex-grow: 1;
-}
-```
-
-## 4.5: Applying styles
-
-Now add the proper classes to our parent elements. Remember to import `classnames` with `import classnames from 'classnames';`, as it is not a Meteor package you shouldn't have `meteor/` before its name. 
-
-`imports/ui/Task.jsx`
-
-```js
-import React from 'react';
-import classnames from 'classnames';
-
-export const Task = ({ task, onCheckboxClick, onDeleteClick }) => {
-  const classes = classnames('task', {
-    checked: !!task.isChecked,
-  });
-
-  return (
-    <li className={classes}>
-      <button onClick={() => onDeleteClick(task)}>&times;</button>
-      ..
-    </li>
-  );
-};
-```
-
-The code above using `classnames` will product the class name `checked` only when your task is checked.
-
-Finally, you add the CSS styling which will normalize and differentiate your checked tasks visually.
-
-> You can learn more about CSS Flexible Box Module [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox).
-
-Add `simple-todos-react` to your main div on `App` component.
-
-`imports/ui/App.jsx`
-
-```js
-  ..
-  return (
-    <div className="simple-todos-react">
-      <h1>Welcome to Meteor!</h1>
-  ..
-```
-
-> In React we use `className` instead of `class` as React uses Javascript to define the UI and `class` is a reserved word in Javascript.
-
-Now we have a proper style foundation, nothing fancy, but we have the right semantics in place.
+In the next step we are going to improve the look of your app using CSS with Flexbox.

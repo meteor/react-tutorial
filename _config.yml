@@ -14,13 +14,14 @@ sidebar_categories:
     - simple-todos/02-collections
     - simple-todos/03-forms-and-events
     - simple-todos/04-update-and-remove
-    - simple-todos/05-hooks
-    - simple-todos/06-adding-user-accounts
-    - simple-todos/07-publish-and-subscribe
-    - simple-todos/08-security
-    - simple-todos/09-running-on-mobile
-    - simple-todos/10-testing
-    - simple-todos/11-next-steps
+    - simple-todos/05-styles
+    - simple-todos/06-hooks
+    - simple-todos/07-adding-user-accounts
+    - simple-todos/08-publish-and-subscribe
+    - simple-todos/09-security
+    - simple-todos/10-running-on-mobile
+    - simple-todos/11-testing
+    - simple-todos/12-next-steps
 github_repo: 'meteor/react-tutorial'
 
 url: http://react-tutorial.meteor.com/

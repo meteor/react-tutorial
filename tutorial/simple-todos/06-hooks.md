@@ -1,10 +1,10 @@
 ---
-title: "5: Hooks"
+title: "6: Hooks"
 ---
 
 In this step we will store some state using React Hooks.
 
-## 5.1: Add State Hook
+## 6.1: Add State Hook
 
 First we need to import the `useState` function from the React library. Afterwards we initialize the hook with `false`.
 
@@ -31,7 +31,7 @@ export const App = () => {
 
 You can read more about the `useState` hook [here](https://reactjs.org/docs/hooks-state.html).
 
-## 5.2: Update the Application's Stylesheet
+## 6.2: Update the Application's Stylesheet
 
 `client/main.css`
 ```css
@@ -54,7 +54,7 @@ body {
   margin: 0;
 ```
 
-## 5.3: Add Filtering Checkbox
+## 6.3: Add Filtering Checkbox
 
 This is straightforward, but since it quite didn't look right we made some improvements to our styling as well. 
 
@@ -82,7 +82,7 @@ This is straightforward, but since it quite didn't look right we made some impro
           key={ task._id }
 ```
 
-## 5.4: Add the lodash Node package to the application
+## 6.4: Add the lodash Node package to the application
 
 Meteor allows you to leverage all Node.js' ecosystem, including a well-known library called Lodash. This library helps us write code in a more declarative manner.
 
@@ -94,7 +94,7 @@ So, for simplicity we use `_` to namespace all of Lodash's functions.
 meteor npm install --save-dev lodash
 ```
 
-## 5.5: Filter Tasks
+## 6.5: Filter Tasks
 
 Now, if the user has selected the `checkbox` to hide completed tasks, we will include our `checked: false` clause to the query.
 
@@ -124,7 +124,7 @@ export const App = () => {
     <div className="simple-todos-react">
 ```
 
-## 5.6: Render Count
+## 6.6: Render Count
 
 Update the App component in order to calculate the number of incomplete tasks.
 
@@ -142,7 +142,7 @@ Update the App component in order to calculate the number of incomplete tasks.
     <div className="simple-todos-react">
 ```
 
-## 5.7: Render Count
+## 6.7: Render Count
 
 Finally we just modify our header to display the render count.
 
@@ -156,3 +156,40 @@ Finally we just modify our header to display the render count.
       <div className="filters">
         <label>
 ```
+
+Now add the proper classes to our parent elements. Remember to import `classnames` with `import classnames from 'classnames';`, as it is not a Meteor package you shouldn't have `meteor/` before its name.
+
+`imports/ui/Task.jsx`
+
+```js
+import React from 'react';
+import classnames from 'classnames';
+
+export const Task = ({ task, onCheckboxClick, onDeleteClick }) => {
+  const classes = classnames('task', {
+    checked: !!task.isChecked,
+  });
+
+  return (
+    <li className={classes}>
+      <button onClick={() => onDeleteClick(task)}>&times;</button>
+      ..
+    </li>
+  );
+};
+```
+
+The code above using `classnames` will product the class name `checked` only when your task is checked.
+
+
+
+Now we have a proper style foundation, nothing fancy, but we have the right semantics in place.
+
+
+First, let's install the `classnames` package which helps us manage conditional styling:
+
+```
+meteor npm install classnames
+```
+
+> You should always use `meteor npm` instead of only `npm` so you always use the `npm` version pinned by Meteor, this helps you to avoid problems due to different versions of npm installing different modules.
