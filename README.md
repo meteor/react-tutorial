@@ -41,6 +41,8 @@ Make sure your changes are not breaking styles and lint rules, in the root proje
 `quave-check` should not return any error or warning. If it does you need to fix them before sending a PR.
 
 If you get an error because some npm modules are not resolved (`import/no-unresolved`) you need to run `npm install` inside the Meteor project that is throwing this error so you generate the `node_modules` folder for it.
+
+We have a git hook to prevent commits that are not passing these rules but it's good to double-check as maybe your hooks set up can be messed up.
   
 ### Making a Pull Request
 
