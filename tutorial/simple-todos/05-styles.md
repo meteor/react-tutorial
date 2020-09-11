@@ -201,3 +201,7 @@ You could choose something like:
 Your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step05-styles.png"/>
+
+> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step05) 
+
+In the next step we are going to make this task list more interactive, for example, providing a way to filter tasks.
