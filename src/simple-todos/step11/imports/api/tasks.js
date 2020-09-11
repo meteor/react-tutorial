@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
@@ -13,10 +14,10 @@ Meteor.methods({
 
     Tasks.insert({
       text,
-      createdAt: new Date,
+      createdAt: new Date(),
       owner: this.userId,
-      username: Meteor.users.findOne(this.userId).username
-    })
+      username: Meteor.users.findOne(this.userId).username,
+    });
   },
 
   'tasks.remove'(taskId) {
@@ -43,8 +44,8 @@ Meteor.methods({
 
     Tasks.update(taskId, {
       $set: {
-        isChecked
-      }
+        isChecked,
+      },
     });
   },
 
@@ -60,19 +61,16 @@ Meteor.methods({
 
     Tasks.update(taskId, {
       $set: {
-        isPrivate
-      }
-    })
-  }
+        isPrivate,
+      },
+    });
+  },
 });
 
 if (Meteor.isServer) {
   Meteor.publish('tasks', function() {
     return Tasks.find({
-      $or: [
-        { private: { $ne: true } },
-        { owner: this.userId }
-      ]
+      $or: [{ private: { $ne: true } }, { owner: this.userId }],
     });
-  })
+  });
 }

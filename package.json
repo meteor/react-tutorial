@@ -6,6 +6,7 @@
     "version": "3.9.0"
   },
   "devDependencies": {
+    "@quave/eslint-config-quave": "^1.0.3",
     "canonical-json": "0.0.4",
     "chexo": "1.0.7",
     "handlebars": "4.4.3",
@@ -27,6 +28,27 @@
     "test": "npm run clean; npm run build",
     "predeploy": "npm run build",
     "deploy": "hexo-s3-deploy",
-    "start": "npm run build && chexo meteor-hexo-config -- server"
+    "start": "npm run build && chexo meteor-hexo-config -- server",
+    "quave-eslint": "eslint . --fix",
+    "quave-prettier": "prettier --write \"**/*.js\" \"**/*.jsx\"",
+    "quave-check": "npm run quave-eslint && npm run quave-prettier"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@quave/quave"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "meteor npm test && lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "*.{js|jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

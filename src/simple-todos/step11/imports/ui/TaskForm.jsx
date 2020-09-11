@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 export const TaskForm = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const handleSubmit = () => {
     if (!text) return;
 
     Meteor.call('tasks.insert', text.trim());
 
-    setText("");
+    setText('');
   };
 
   return (
@@ -17,7 +17,7 @@ export const TaskForm = () => {
         type="text"
         placeholder="Type to add new tasks"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={e => setText(e.target.value)}
       />
 
       <button type="submit">Add Task</button>

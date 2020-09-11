@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TasksCollection } from '/imports/api/TasksCollection';
 
 export const TaskForm = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -11,10 +11,10 @@ export const TaskForm = () => {
 
     TasksCollection.insert({
       text: text.trim(),
-      createdAt: new Date()
+      createdAt: new Date(),
     });
 
-    setText("");
+    setText('');
   };
 
   return (
@@ -23,7 +23,7 @@ export const TaskForm = () => {
         type="text"
         placeholder="Type to add new tasks"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={e => setText(e.target.value)}
       />
 
       <button type="submit">Add Task</button>
