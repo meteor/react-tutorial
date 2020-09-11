@@ -36,7 +36,7 @@ export const TaskForm = () => {
 
 ## 3.2: Update the App component
 
-Then we can simply add this to our `App` component below your list of tasks:
+Then we can simply add this to our `App` component above your list of tasks:
 
 `imports/ui/App.jsx`
 ```js
@@ -52,10 +52,11 @@ export const App = () => {
     <div>
       <h1>Welcome to Meteor!</h1>
 
+      <TaskForm/>
+
       <ul>
         { tasks.map(task => <Task key={ task._id } task={ task }/>) }
       </ul>
-      <TaskForm/>
     </div>
   );
 };
