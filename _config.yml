@@ -27,6 +27,7 @@ url: http://react-tutorial.meteor.com/
 root: /
 
 source_dir: tutorial
+content_root: tutorial
 
 highlight:
   enable: false
