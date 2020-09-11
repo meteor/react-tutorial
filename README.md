@@ -31,6 +31,17 @@ If you are making a larger contribution, you may need to run the site locally:
 
   `npm start`
   
+### Styles and Lint
+
+Make sure your changes are not breaking styles and lint rules, in the root project, run:
+
+  - `npm install`
+  - `npm run quave-check`
+  
+`quave-check` should not return any error or warning. If it does you need to fix them before sending a PR.
+
+If you get an error because some npm modules are not resolved (`import/no-unresolved`) you need to run `npm install` inside the Meteor project that is throwing this error so you generate the `node_modules` folder for it.
+  
 ### Making a Pull Request
 
 - Create a fork and make your changes on it.
