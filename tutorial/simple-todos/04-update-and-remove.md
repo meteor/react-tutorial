@@ -9,9 +9,9 @@ Up until now you have only inserted documents into our collection. Let's take a 
 First, you need to add a `checkbox` element to your `Task` component.
 
 > Be sure to add the `readOnly` attribute since we are not using `onChange` to update the state.
-
+>
 > We also have to force our `checked` prop to a `boolean` since React understands that an `undefined` value as inexistent, therefore causing the component to switch from uncontrolled to a controlled one.
-
+>
 > You are also invited to experiment and see how the app behaves for learning purposes.
 
 You also want to receive a callback, a function that will be called when the checkbox is clicked.
