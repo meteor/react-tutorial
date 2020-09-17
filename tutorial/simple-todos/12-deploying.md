@@ -22,7 +22,7 @@ Done, your account is created. You can use this account to access [atmospherejs.
 
 In the next step you will sign-up for Galaxy, you are going to see a form like this:
 
-<img width="500px" src="/simple-todos/assets/step12-sign-up.png"/>
+<img width="500px" src="/simple-todos/assets/step12-sign-up-galaxy.png"/>
 
 You can select `Individually` and click in `Continue`.
 
