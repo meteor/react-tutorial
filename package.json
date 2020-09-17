@@ -1,0 +1,54 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "3.9.0"
+  },
+  "devDependencies": {
+    "@quave/eslint-config-quave": "^1.0.3",
+    "canonical-json": "0.0.4",
+    "chexo": "1.0.7",
+    "handlebars": "4.4.3",
+    "hexo": "3.9.0",
+    "hexo-prism-plus": "^1.1.0",
+    "hexo-renderer-ejs": "^1.0.0",
+    "hexo-renderer-less": "0.2.0",
+    "hexo-renderer-marked": "^3.2.0",
+    "hexo-server": "1.0.0",
+    "hexo-versioned-netlify-redirects": "1.1.0",
+    "meteor-hexo-config": "1.0.10",
+    "meteor-theme-hexo": "2.0.1",
+    "showdown": "1.9.0",
+    "underscore": "1.9.1"
+  },
+  "scripts": {
+    "build": "chexo meteor-hexo-config -- generate",
+    "clean": "hexo clean",
+    "test": "npm run clean; npm run build",
+    "predeploy": "npm run build",
+    "deploy": "hexo-s3-deploy",
+    "start": "npm run build && chexo meteor-hexo-config -- server",
+    "quave-eslint": "eslint . --fix",
+    "quave-prettier": "prettier --write \"**/*.js\" \"**/*.jsx\"",
+    "quave-check": "npm run quave-eslint && npm run quave-prettier"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@quave/quave"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "meteor npm test && lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "*.{js|jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

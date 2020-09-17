@@ -1,0 +1,7 @@
+# general
+**/.meteor/local/*
+**/node_modules/*
+
+# specific for tutorial repo
+public/script/*
+scripts/*
