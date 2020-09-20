@@ -2,7 +2,7 @@
 title: "2: Collections"
 ---
 
-Meteor already sets up MongoDB for your. In order to use our database we need to create a _collection_, which is where we will store our _documents_, in our case our `tasks`.
+Meteor already sets up MongoDB for you. In order to use our database we need to create a _collection_, which is where we will store our _documents_, in our case our `tasks`.
 
 > You can read more about collections [here](http://guide.meteor.com/collections.html).
 
