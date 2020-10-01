@@ -149,4 +149,4 @@ Now your app should look like this:
 
 > Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step01) 
 
-In the next section we are going to work with our MongoDB database to store our tasks.
+In the next step we are going to work with our MongoDB database to store our tasks.
