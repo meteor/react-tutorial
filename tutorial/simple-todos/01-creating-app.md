@@ -106,7 +106,7 @@ export const App = () => (
 );
 ```
 
-Remember to add the `key` property to your task, otherwise React will emit a warning as it will see many components of the same type as siblings and without a key it will be hard to React to re-render one of them if necessary 
+Remember to add the `key` property to your task, otherwise React will emit a warning because it will see many components of the same type as siblings. Without a key it will be hard for React to re-render one of them if necessary. 
 
 > You can read more about React and Keys [here](https://reactjs.org/docs/lists-and-keys.html#keys).
 
@@ -114,22 +114,22 @@ Remove the `Hello` and `Info` from your `App` component, remember to also remove
 
 ## 1.6 Mobile look
 
-Let's see how your app is looking on Mobile. You can simulate a mobile environment `right clicking` your app in the browser (we are assuming you are using Google Chrome as it is the most popular browser today) and then `inspect`, this will open a new window inside your browser called `Dev Tools`. In the `Dev Tools` you have a small icon showing a Mobile device and a Tablet, see where this icon is:
+Let's see how your app is looking on Mobile. You can simulate a mobile environment by `right clicking` your app in the browser (we are assuming you are using Google Chrome, as it is the most popular browser today) and then `inspect`, this will open a new window inside your browser called `Dev Tools`. In the `Dev Tools` you have a small icon showing a Mobile device and a Tablet:
 
 <img width="500px" src="/simple-todos/assets/step01-dev-tools-mobile-toggle.png"/>
 
 Click on it and then select the phone that you want to simulate and in the top bar.
 
-> You can also check your app in your cellphone, you can connect to your App using your local IP in the navigation browser of your mobile browser.
+> You can also check your app in your cellphone. To do so, connect to your App using your local IP in the navigation browser of your mobile browser.
 >
 > This command should print your local IP for you on Unix systems at least
 `ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'`
 
-You are going to see something like this:
+You will see something like this:
 
 <img width="200px" src="/simple-todos/assets/step01-mobile-without-meta-tags.png"/>
 
-As you can see everything is small, that is because we are not adjusting the view port for mobile devices, you can fix this and other similar issues by adding these lines to your `client/main.html` file, inside the `head` tag, after the `title`.
+As you can see everything is small as we are not adjusting the view port for mobile devices. You can fix this and other similar issues by adding these lines to your `client/main.html` file, inside the `head` tag, after the `title`.
 
 `client/main.html`
 ```html
@@ -149,4 +149,4 @@ Now your app should look like this:
 
 > Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step01) 
 
-In the next step we are going to work with MongoDB database to store our tasks.
+In the next step we are going to work with our MongoDB database to store our tasks.
