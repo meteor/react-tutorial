@@ -40,7 +40,7 @@ meteor add-platform android
 After you agree to the license terms, type:
 
 ```
-metoer run android
+meteor run android
 ```
 
 After some initialization, you will see an Android emulator pop up, running your app inside a native Android wrapper. The emulator can be somewhat slow, so if you want to see what it's really like using your app, you should run it on an actual device.
