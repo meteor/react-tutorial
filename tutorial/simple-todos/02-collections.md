@@ -29,7 +29,7 @@ You can delete the `links.js` file in this folder as we are not going to use thi
 
 For our collection to work you need to import it in the server so it sets some plumbing up. 
 
-You can either use `import "/imports/api/TasksCollection"` or `import { TasksCollection } from "/imports/api/TasksCollection"` if you are going to use on the same file, but make sure it is imported.
+You can either use `import "../imports/api/TasksCollection"` or `import { TasksCollection } from "../imports/api/TasksCollection"` if you are going to use on the same file, but make sure it is imported.
 
 Now it is easy to check if there is data or not in our collection, otherwise we can insert some sample data easily as well.
 
@@ -38,7 +38,7 @@ You don't need to keep the old content of `server/main.js`.
 `server/main.js`
 ```js
 import { Meteor } from 'meteor/meteor';
-import { TasksCollection } from '/imports/api/TasksCollection';
+import { TasksCollection } from '../imports/api/TasksCollection';
 
 const insertTask = taskText => TasksCollection.insert({ text: taskText });
  
@@ -81,7 +81,7 @@ The `useTracker` function exported by `react-meteor-data` is a React Hook that a
 ```javascript
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
-import { TasksCollection } from '/imports/api/TasksCollection';
+import { TasksCollection } from '../imports/api/TasksCollection';
 import { Task } from './Task';
  
 export const App = () => {
