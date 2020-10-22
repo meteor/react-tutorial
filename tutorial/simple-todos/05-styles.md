@@ -128,17 +128,17 @@ header {
   margin-block-end: 0;
 }
 
-.task {
+.tasks > li {
   display: flex;
   padding: 16px;
   border-bottom: #eee solid 1px;
 }
 
-.task > span {
+.tasks > li > span {
   flex-grow: 1;
 }
 
-.task > button {
+.tasks > li > button {
   justify-self: flex-end;
   background-color: #ff3046;
 }
