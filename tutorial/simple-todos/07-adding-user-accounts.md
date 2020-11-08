@@ -214,7 +214,7 @@ Every task should have an owner from now on. So go to your database, as you lear
 
 `db.tasks.remove({});`
 
-Change your `server/main.js` to add the seed tasks using your `meteoriote` user as owner.
+Change your `server/main.js` to add the seed tasks using your `meteorite` user as owner.
 
 Make sure you restart the server after this change so `Meteor.startup` block will run again. This is probably going to happen automatically any way as you are going to make changes in the server side code.
 
