@@ -4,6 +4,11 @@ versions:
   - '1'
 versioned-netlify-redirects:
   netlify_site_id: meteor-react-tutorial
+
+logo:
+  title:
+  subtitle: React Tutorial
+
 sidebar_categories:
   null:
     - index
