@@ -120,7 +120,7 @@ You can double-click your collection to see the documents stored on it:
 <img width="500px" src="/simple-todos/assets/step02-see-your-collection.png"/>
 
 
-But wait, how my tasks are coming from the server to the client? We are going to explain this later, in the step about Publications and Subscriptons. What you need to know now is that you are publishing all the data from the database to the client. This will be removed later as we don't want to publish all the data all the time.
+But wait, how my tasks are coming from the server to the client? We are going to explain this later, in the step about Publications and Subscriptions. What you need to know now is that you are publishing all the data from the database to the client. This will be removed later as we don't want to publish all the data all the time.
 
 > Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step02) 
 
