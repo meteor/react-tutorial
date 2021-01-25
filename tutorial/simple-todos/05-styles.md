@@ -150,7 +150,16 @@ header {
 
 ## 5.2: Applying styles
 
-Now you need to add some elements around your components. You are going to add a `className` to your main div in the `App`, also a `header` element with a few `divs` around your `h1`, and a main `div` around your form and list. Check below how it should be, pay attention to the name of the classes, they need to be the same as in the CSS file:
+Now you need to add some elements around your components. You are going to add a `className` to your main div in the `App`, in the `Task` item, and also a `header` element with a few `divs` around your `h1`, and a main `div` around your form and list. Check below how it should be, pay attention to the name of the classes, they need to be the same as in the CSS file:
+
+`imports/ui/Tasks.jsx`
+
+```js
+...
+  return (
+    <li className="task">
+...
+```
 
 `imports/ui/App.jsx`
 
