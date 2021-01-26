@@ -2,9 +2,9 @@
 title: "3: Forms and Events"
 ---
 
-All apps need to allow the user to perform some types of interaction with the data that is stored. In our case, the first type of interaction is to insert new tasks, or our app would not have much value, would it?
+All apps need to allow the user to perform some types of interaction with the data that is stored. In our case, the first type of interaction is to insert new tasks. Without it, our To-Do app wouldn't be very helpful.  
 
-One of the main ways in which a user can insert or edit data in a website is through forms, in most cases it is a good idea to use the `<form>` tag since it gives semantic meaning to the elements inside it.
+One of the main ways in which a user can insert or edit data in a website is through forms. In most cases it is a good idea to use the `<form>` tag since it gives semantic meaning to the elements inside it.
 
 ## 3.1: Create Task Form
 
@@ -65,7 +65,7 @@ export const App = () => {
 
 ## 3.3: Update the Stylesheet
 
-You also can style it, for now we only need some margin at the top so the form doesn't seem a little off the mark. Add the CSS class `.task-form`, this needs to be the same name in your `className` attribute in the form component.
+You also can style it as you wish. For now, we only need some margin at the top so the form doesn't seem off the mark. Add the CSS class `.task-form`, this needs to be the same name in your `className` attribute in the form component.
 
 `client/main.css`
 ```css
@@ -80,7 +80,7 @@ Now you can attach a submit handler to your form using the `onSubmit` event; and
 
 As you can see you are using the `useState` React Hook to store the `value` of your `<input>` element. Note that you also need to set your `value` attribute to the `text` constant as well, this will allow the `input` element to stay in sync with our hook.
 
-> In more complex applications you might want to implement some `debounce` or `throttle` logic if there are too many calculations happening between potentially frequent events like `onChange`. There are libraries which will help you with this, like [Lodash](https://lodash.com/), for instance.
+> In more complex applications you might want to implement some `debounce` or `throttle` logic if there many calculations happening between potentially frequent events like `onChange`. There are libraries which will help you with this, like [Lodash](https://lodash.com/), for instance.
 
 `imports/ui/TaskForm.jsx`
 ```js
