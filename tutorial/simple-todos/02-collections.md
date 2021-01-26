@@ -65,7 +65,7 @@ Now comes the fun part, you will render the tasks using a React Function Compone
 
 > Meteor works with Meteor packages and NPM packages, usually Meteor packages are using Meteor internals or other Meteor packages.
 
-This package is already included in the React skeleton (`meteor create --react yourproject`) so you don't need to add it but you can always add Meteor packages running `meteor add package-name`:
+This package is already included in the React skeleton (`meteor create yourproject`) so you don't need to add it but you can always add Meteor packages running `meteor add package-name`:
 
 ```shell
 meteor add react-meteor-data

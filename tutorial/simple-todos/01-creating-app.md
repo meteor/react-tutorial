@@ -23,7 +23,7 @@ choco install meteor
 The easiest way to setup Meteor with React is by using the command `meteor create` with the option `--react` and your project name:
 
 ```
-meteor create --react simple-todos-react
+meteor create simple-todos-react
 ```
 
 Meteor will create all the necessary files for you. 
@@ -146,6 +146,18 @@ As you can see everything is small as we are not adjusting the view port for mob
 Now your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step01-mobile-with-meta-tags.png"/>
+
+## 1.7 Hot Module Replacement
+
+Meteor by default when using React is already adding for you a package called `hot-module-replacement`. This package updates the javascript modules in a running app that were modified during a rebuild. Reduces the feedback cycle while developing so you can view and test changes quicker (it even updates the app before the build has finished). You are also not going to lose the state, the your app code will be updated and your state will be the same.
+
+You should also add the package `dev-error-overlay` at this point so you can see the errors in your web browser.
+
+```shell
+meteor add dev-error-overlay
+```
+
+You can try to make some mistakes and then you are going to see the errors in the browser and not only in the console.
 
 > Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step01) 
 
