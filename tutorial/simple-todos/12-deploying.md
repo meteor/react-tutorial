@@ -53,11 +53,11 @@ The MongoDB URL is very important, we will need it in the next part.
 
 ## 12.3: Set up settings
 
-You need to create a setting file, it's a JSON file that Meteor apps can read the settings from. Create this file in a new folder called `private` in the root of your project. `private` is a special folder that is not going to be published to the client.
+You need to create a setting file, it's a JSON file that Meteor apps can read the settings from. Store this file in a safe place, like a Password Manager. You should put this file in the same folder as your project, as a sibling.
 
 Make sure you replace `Your MongoDB URL` by your MongoDB URL :)
 
-`private/settings.json`
+`../settings.json`
 ```json
 {
   "galaxy.meteor.com": {
@@ -83,7 +83,7 @@ In this example we are going to use `react-tutorial.meteorapp.com` but make sure
 Run the deploy command:
 
 ```shell script
-meteor deploy react-tutorial.meteorapp.com --settings private/settings.json
+meteor deploy react-tutorial.meteorapp.com --settings ../settings.json
 ```
 
 Make sure you replace `react-tutorial` by a custom name that you want as sub-domain.
@@ -91,7 +91,7 @@ Make sure you replace `react-tutorial` by a custom name that you want as sub-dom
 You are going to see a log like this:
 
 ```shell script
-meteor deploy react-tutorial.meteorapp.com --settings private/settings.json
+meteor deploy react-tutorial.meteorapp.com --settings ../settings.json
 Talking to Galaxy servers at https://us-east-1.galaxy-deploy.meteor.com
 Preparing to build your app...                
 Preparing to upload your app... 
