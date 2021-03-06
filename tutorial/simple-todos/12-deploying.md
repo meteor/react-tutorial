@@ -12,7 +12,7 @@ The best place to run your Meteor app is [Galaxy](https://www.meteor.com/cloud).
 
 Do you have a Meteor Cloud Account? No? Ok, let's fix it.
 
-Go to [cloud.meteor.com](cloud.meteor.com?isSignUp=true). You are going to see a form like this:
+Go to [cloud.meteor.com](https://cloud.meteor.com?isSignUp=true). You are going to see a form like this:
 
 <img width="500px" src="/simple-todos/assets/step12-sign-up.png"/>
 
