@@ -23,7 +23,7 @@ choco install meteor
 The easiest way to setup Meteor with React is by using the command `meteor create` with the option `--react` and your project name:
 
 ```
-meteor create simple-todos-react
+meteor create --react simple-todos-react
 ```
 
 Meteor will create all the necessary files for you. 
