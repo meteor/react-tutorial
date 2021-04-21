@@ -26,13 +26,13 @@ if (Meteor.isServer) {
         assert.equal(TasksCollection.find().count(), 0);
       });
 
-      it(`can't delete task without an user authenticated`, () => {
+      it('can\'t delete task without an user authenticated', () => {
         const fn = () => mockMethodCall('tasks.remove', taskId);
         assert.throw(fn, /Not authorized/);
         assert.equal(TasksCollection.find().count(), 1);
       });
 
-      it(`can't delete task from another owner`, () => {
+      it('can\'t delete task from another owner', () => {
         const fn = () =>
           mockMethodCall('tasks.remove', taskId, {
             context: { userId: 'somebody-else-id' },
