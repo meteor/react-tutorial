@@ -28,6 +28,9 @@ sidebar_categories:
     - simple-todos/11-testing
     - simple-todos/12-deploying
     - simple-todos/13-next-steps
+  Simple Todos with GraphQL:
+    - simple-todos-graphql/index
+    - simple-todos-graphql/01-graphql-setup
 github_repo: 'meteor/react-tutorial'
 
 url: http://react-tutorial.meteor.com/
