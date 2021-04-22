@@ -11,8 +11,6 @@ import gql from 'graphql-tag';
 const toggleChecked = ({ _id, isChecked }) =>
   Meteor.call('tasks.setIsChecked', _id, !isChecked);
 
-const deleteTask = ({ _id }) => Meteor.call('tasks.remove', _id);
-
 const tasksQuery = gql`
   query Tasks {
     tasks {
@@ -33,7 +31,7 @@ export const App = () => {
 
   const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-  const  { loading, data } = useQuery(tasksQuery)
+  const  { loading, data, refetch } = useQuery(tasksQuery)
 
   const { tasksStatus, pendingTasksCount, isLoading } = useTracker(() => {
     const noDataAvailable = { tasksStatus: [], pendingTasksCount: 0 };
@@ -71,6 +69,11 @@ export const App = () => {
 
   const logout = () => Meteor.logout();
 
+  const deleteTask = ({ _id }) => {
+    Meteor.call('tasks.remove', _id);
+    refetch();
+  };
+
   return (
     <div className="app">
       <header>
@@ -91,7 +94,7 @@ export const App = () => {
               {user.username} 🚪
             </div>
 
-            <TaskForm />
+            <TaskForm refetch={refetch}/>
 
             <div className="filter">
               <button onClick={() => setHideCompleted(!hideCompleted)}>

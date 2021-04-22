@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
 
-export const TaskForm = () => {
+export const TaskForm = ({ refetch }) => {
   const [text, setText] = useState('');
 
   const handleSubmit = e => {
@@ -12,6 +12,7 @@ export const TaskForm = () => {
     Meteor.call('tasks.insert', text);
 
     setText('');
+    refetch();
   };
 
   return (

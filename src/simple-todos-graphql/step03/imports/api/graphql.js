@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { startGraphQLServer } from 'meteor/quave:graphql/server';
-import { TasksCollection } from "../db/TasksCollection";
+import { TasksCollection } from '../db/TasksCollection';
 
 const log = error => console.error({ message: 'GraphQL server error', error });
 
@@ -52,12 +52,12 @@ const TaskResolvers = {
   Task: {
     user({ userId }) {
       return Meteor.users.findOne(userId);
-    }
-  }
+    },
+  },
 };
 
 startGraphQLServer({
   typeDefs: [UserSchema, TaskSchema],
   resolvers: [UserResolvers, TaskResolvers],
-  log
+  log,
 });

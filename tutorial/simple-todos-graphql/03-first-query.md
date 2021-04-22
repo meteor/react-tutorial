@@ -57,6 +57,11 @@ startGraphQLServer({
 
 For the client side, let's create a query to get our tasks and update our `App` to merge the data coming from the GraphQL with the data coming from the subscription.
 
+To call a query we can use the hook `useQuery` from `@apollo/react-hooks`.
+
+
+`imports/ui/App.jsx`
+
 ```js
 ..
 import { useQuery } from "@apollo/react-hooks";
@@ -101,4 +106,69 @@ Now our tasks, fetched with GraphQL, have their status again, and the tasks' sta
 
 # 3.2 Refetching Queries
 
-Everything seems to be working now
+Everything seems to be working, but our app has a big problem.
+
+If you try to add or remove a task, nothing will happen until you refresh the page after the action.
+
+Everything was working before (and still it is with the toggle) because we were getting the tasks using the `useTracker` that will automatically fetch the data again if something changes. But now, we're getting the tasks with GraphQL and after an action that changes something in the background, we need a way to call the query again. With GraphQL, we have a couple of ways of doing it.
+
+For now, let's use the function `refetch` that's returned from the hook `useQuery`, alongside with the `data` and the `loading`.
+
+We'll need to pass forward this function to the `TaskForm` so we can call the query again as soon as the user adds a new task, and we need to call this function well someone tries to delete a task. The easiest way will be moving the delete function inside the `App` component.
+
+`imports/ui/App.jsx`
+
+```js
+..
+export const App = () => {
+  ..
+  const  { loading, data, refetch } = useQuery(tasksQuery)
+  ..
+  const logout = () => Meteor.logout();
+
+  const deleteTask = ({ _id }) => {
+    Meteor.call('tasks.remove', _id);
+    refetch();
+  };
+
+  return (
+    <div className="app">
+      ..
+      <div className="main">
+            ..
+            <TaskForm refetch={refetch}/>
+            ..
+      </div>
+    </div>
+  );
+};
+
+```
+
+Now for the `TaskForm`:
+
+`imports/ui/TaskForm.jsx`
+
+```js
+..
+export const TaskForm = ({ refetch }) => {
+  ..
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (!text) return;
+
+    Meteor.call('tasks.insert', text);
+
+    setText('');
+    refetch();
+  };
+  ..
+};
+```
+
+Everything should be working again.
+
+> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step03)
+
+In the next step we'll see how to use a mutation.
