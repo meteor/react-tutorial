@@ -33,6 +33,7 @@ sidebar_categories:
     - simple-todos-graphql/01-graphql-setup
     - simple-todos-graphql/02-especific-data
     - simple-todos-graphql/03-first-query
+    - simple-todos-graphql/04-first-mutation
 github_repo: 'meteor/react-tutorial'
 
 url: http://react-tutorial.meteor.com/
