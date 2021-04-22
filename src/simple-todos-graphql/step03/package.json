@@ -17,6 +17,7 @@
     "bcrypt": "^5.0.0",
     "graphql": "^15.5.0",
     "graphql-load": "^0.1.1",
+    "graphql-tag": "^2.11.0",
     "graphql-tools": "^7.0.4",
     "meteor-node-stubs": "^1.0.1",
     "react": "^16.13.1",

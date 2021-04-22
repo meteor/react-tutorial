@@ -5,11 +5,22 @@ import { TasksCollection } from '/imports/db/TasksCollection';
 import { Task } from './Task';
 import { TaskForm } from './TaskForm';
 import { LoginForm } from './LoginForm';
+import { useQuery } from "@apollo/react-hooks";
+import gql from 'graphql-tag';
 
 const toggleChecked = ({ _id, isChecked }) =>
   Meteor.call('tasks.setIsChecked', _id, !isChecked);
 
 const deleteTask = ({ _id }) => Meteor.call('tasks.remove', _id);
+
+const tasksQuery = gql`
+  query Tasks {
+    tasks {
+      _id
+      text
+    }
+  }
+`;
 
 export const App = () => {
   const user = useTracker(() => Meteor.user());
@@ -22,18 +33,20 @@ export const App = () => {
 
   const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-  const { tasks, pendingTasksCount, isLoading } = useTracker(() => {
-    const noDataAvailable = { tasks: [], pendingTasksCount: 0 };
+  const  { loading, data } = useQuery(tasksQuery)
+
+  const { tasksStatus, pendingTasksCount, isLoading } = useTracker(() => {
+    const noDataAvailable = { tasksStatus: [], pendingTasksCount: 0 };
     if (!Meteor.user()) {
       return noDataAvailable;
     }
     const handler = Meteor.subscribe('tasks');
 
-    if (!handler.ready()) {
+    if (!handler.ready() || loading) {
       return { ...noDataAvailable, isLoading: true };
     }
 
-    const tasks = TasksCollection.find(
+    const tasksStatus = TasksCollection.find(
       hideCompleted ? pendingOnlyFilter : userFilter,
       {
         sort: { createdAt: -1 },
@@ -42,12 +55,19 @@ export const App = () => {
 
     const pendingTasksCount = TasksCollection.find(pendingOnlyFilter).count();
 
-    return { tasks, pendingTasksCount };
+    return { tasksStatus, pendingTasksCount };
   });
 
   const pendingTasksTitle = `${
     pendingTasksCount ? ` (${pendingTasksCount})` : ''
   }`;
+
+  const tasksData = data && data.tasks || [];
+  const tasks = tasksData.map(({ _id, ...rest }) => ({
+    _id,
+    ...rest,
+    isChecked: (tasksStatus.find(t => t._id === _id) || {}).isChecked,
+  }));
 
   const logout = () => Meteor.logout();
 
