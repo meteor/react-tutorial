@@ -53,9 +53,7 @@ if (Meteor.isServer) {
 
       it('can insert new tasks', () => {
         const text = 'New Task';
-        mockMethodCall('tasks.insert', text, {
-          context: { userId },
-        });
+        TasksCollection.save({ text, userId });
 
         const tasks = TasksCollection.find({}).fetch();
         assert.equal(tasks.length, 2);

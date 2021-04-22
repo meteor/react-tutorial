@@ -1,3 +1,14 @@
 import { Mongo } from 'meteor/mongo';
 
-export const TasksCollection = new Mongo.Collection('tasks');
+const tasksCollection = Object.assign(new Mongo.Collection('tasks'), {
+  save({ text, userId }) {
+    const newTaskId = this.insert({
+      text,
+      userId,
+      createdAt: new Date(),
+    });
+    return this.findOne(newTaskId);
+  }
+});
+
+export { tasksCollection as TasksCollection }

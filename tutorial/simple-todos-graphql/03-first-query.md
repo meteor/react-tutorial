@@ -104,7 +104,7 @@ Notice that in the query `tasksQuery` we just need the `_id` and the `text` as t
 
 Now our tasks, fetched with GraphQL, have their status again, and the tasks' status were fetched with a subscription. When you do the changes and refresh your app again, all the tasks' text should now be visible. 
 
-# 3.2 Refetching Queries
+## 3.2 Refetching Queries
 
 Everything seems to be working, but our app has a big problem.
 

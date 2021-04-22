@@ -94,7 +94,7 @@ export const App = () => {
               {user.username} 🚪
             </div>
 
-            <TaskForm refetch={refetch}/>
+            <TaskForm />
 
             <div className="filter">
               <button onClick={() => setHideCompleted(!hideCompleted)}>

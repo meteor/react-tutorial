@@ -31,6 +31,10 @@ const TaskSchema = `
     tasks: [Task]
   } 
   
+  type Mutation {
+    addTask(text: String!): Task
+  }
+  
   type Task {
     _id: ID!
     text: String
@@ -48,6 +52,14 @@ const TaskResolvers = {
       }
       return TasksCollection.find({ userId }, { sort: { createdAt: -1 } });
     },
+  },
+  Mutation: {
+    addTask(root, { text }, { userId }) {
+      if (!userId) {
+        return null;
+      }
+      return TasksCollection.save({ text, userId });
+    }
   },
   Task: {
     user({ userId }) {

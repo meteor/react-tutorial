@@ -1,7 +1,17 @@
-import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/react-hooks";
 
-export const TaskForm = ({ refetch }) => {
+const taskMutation =  gql`
+  mutation AddTask($text: String!) {
+    addTask(text: $text) {
+      _id
+    }
+  }
+`
+
+export const TaskForm = () => {
+  const [addTaskMutation] = useMutation(taskMutation);
   const [text, setText] = useState('');
 
   const handleSubmit = e => {
@@ -9,10 +19,16 @@ export const TaskForm = ({ refetch }) => {
 
     if (!text) return;
 
-    Meteor.call('tasks.insert', text);
+    addTaskMutation({
+      variables: {
+        text,
+      },
+      refetchQueries: () => ['Tasks']
+    })
+      .then(() => console.log('Task added with success'))
+      .catch(e => console.error('Error trying to add task', e));
 
     setText('');
-    refetch();
   };
 
   return (
