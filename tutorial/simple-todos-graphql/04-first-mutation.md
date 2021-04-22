@@ -102,6 +102,8 @@ You can notice some things on this code. The first one is that we don't need to 
 
 Other thing you may notice is that the function `addTaskMutation` is a Promise, so we can use call the functions `then` and `catch` to do some action when the function succeeds or fails. In our case we are just showing logging messages when something happens.
 
+## 4.2 Fixing Tests
+
 If you try to add a task now, everything should be working now, but before we wrap up, let's do some cleaning.
 
 First, you can stop providing the function `refetch` to the component `<TaskForm />` inside `App.jsx`. Also, remove the method `tasks.insert` from `tasksMethods.`, as we don't need it anymore.
