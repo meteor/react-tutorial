@@ -31,7 +31,7 @@ sidebar_categories:
   Simple Todos with GraphQL:
     - simple-todos-graphql/index
     - simple-todos-graphql/01-graphql-setup
-    - simple-todos-graphql/02-especific-data
+    - simple-todos-graphql/02-specific-data
     - simple-todos-graphql/03-first-query
     - simple-todos-graphql/04-first-mutation
     - simple-todos-graphql/05-next-steps

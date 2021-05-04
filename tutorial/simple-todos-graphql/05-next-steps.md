@@ -11,6 +11,8 @@ Challenges to complete the app:
 - Fix all the tests
 - Stop calling the function `refetch` and just use `refetchQueries` to refetch the tasks
 
+Important: we are not recommending you to avoid Publications and Methods, the goal of this tutorial is just to teach you how to use Meteor with GraphQL in case you like both.
+
 Things to do on Galaxy:
 - Check your logs on Galaxy, watch [here](https://www.youtube.com/watch?v=WPYyHeWM21Q) or read [here](https://cloud-guide.meteor.com/logs.html);
 - Set up your free SSL certificate so you can use `https`, read [here](https://cloud-guide.meteor.com/encryption.html)

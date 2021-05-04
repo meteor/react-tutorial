@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { startGraphQLServer } from 'meteor/quave:graphql/server';
 
-const log = error => console.error({ message: 'GraphQL server error', error });
+const log = error => console.error('GraphQL server error', error);
 
 const UserSchema = `
   type Query {

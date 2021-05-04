@@ -2,9 +2,13 @@
 title: "1: GraphQL Set up"
 ---
 
+Important: we are not recommending you to avoid Publications and Methods, the goal of this tutorial is just to teach you how to use Meteor with GraphQL in case you like both.
+
 ## 1.1: Install GraphQL packages
 
 Start off by installing the package [quave:graphql](https://github.com/quavedev/graphql) following all the steps in the `Installation` section. The server and client set up we'll cover below.
+
+This package uses Meteor (DDP)(https://github.com/meteor/meteor/blob/devel/packages/ddp/DDP.md) as data layer and Apollo as GraphQL implementation.
 
 ## 1.2 Set up server
 
@@ -16,7 +20,7 @@ Create a new file called `graphql.js` inside the `api` folder. This file will be
 import { Meteor } from 'meteor/meteor';
 import { startGraphQLServer } from 'meteor/quave:graphql/server';
 
-const log = error => console.error({ message: 'GraphQL server error', error });
+const log = error => console.error('GraphQL server error', error);
 
 const UserSchema = `
   type Query {
@@ -44,7 +48,7 @@ startGraphQLServer({ typeDefs: [UserSchema], resolvers: [UserResolvers], log });
 
 ```
 
-The code inside this file is fairly simple. We have our schema inside the variable `UserSchema` and we have our resolver inside our variable `UserResolvers`. Then, we provide these data to the function `startGraphQLServer`, that is responsible for starting the GraphQL server, alongside with a callback that will be called every time we have an error with the GraphQL in the server side.
+The code inside this file is fairly simple. We have our schema inside the variable `UserSchema` and we have our resolver inside our variable `UserResolvers`. Then, we provide these data to the function `startGraphQLServer`, that is responsible for starting the GraphQL server, alongside with a log function that will be called every time we have an error with the GraphQL in the server side.
 
 For now, we just have a `loggedUser` query that we'll test soon using the Apollo Dev Tools.
 
@@ -133,8 +137,7 @@ If you log out and then hit the run button again, you should see something like 
 
 <img width="800px" src="/simple-todos-graphql/assets/step01-query-no-result.png"/>
 
-
-This shows that our app is now working with GraphQL :).
+This shows that our app is now working with GraphQL.
 
 > Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step01)
 
