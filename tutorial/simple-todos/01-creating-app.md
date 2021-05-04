@@ -11,9 +11,9 @@ curl https://install.meteor.com/ | sh
 ```
 
 If you are on Windows:
-First install [Chocolatey](https://chocolatey.org/install), then run this command using an Administrator command prompt:
+First install npm, then run this command:
 ```shell
-choco install meteor
+npm install -g meteor
 ```
 
 > You can check more details about Meteor installation [here](https://www.meteor.com/install)
