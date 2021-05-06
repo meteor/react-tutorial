@@ -24,4 +24,9 @@ Things to do on Galaxy:
 Here are some options for where you can go next:
 
 1. Read the [Meteor Guide](https://guide.meteor.com/) to learn about best practices and useful community packages
-2. Check out the [complete documentation](https://docs.meteor.com/)
+2. Check out the [complete Meteor documentation](https://docs.meteor.com/)
+3. Learn more about using GraphQL from:
+  - [graphql.org/learn](https://graphql.org/learn/)
+  - [Apollo Client: React](https://www.apollographql.com/docs/react/) docs
+  - [Apollo Server](https://www.apollographql.com/docs/apollo-server/) docs
+  - [The GraphQL Guide](https://graphql.guide/) (use code METEOR for 20% off)
