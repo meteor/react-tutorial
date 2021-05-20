@@ -100,7 +100,7 @@ export const App = () => (
     <h1>Welcome to Meteor!</h1>
  
     <ul>
-      { tasks.map(task => <Task key={ task._id } task={ task }/>) }
+      { tasks.map(task => <Task key={ task._id } task={ task.text }/>) }
     </ul>
   </div>
 );
