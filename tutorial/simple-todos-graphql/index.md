@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Introduction GraphQL
 description: Learn how to use GraphQL with Meteor and React
 ---
 
