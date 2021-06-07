@@ -149,7 +149,7 @@ Now your app should look like this:
 
 ## 1.7 Hot Module Replacement
 
-Meteor by default when using React is already adding for you a package called `hot-module-replacement`. This package updates the javascript modules in a running app that were modified during a rebuild. Reduces the feedback cycle while developing so you can view and test changes quicker (it even updates the app before the build has finished). You are also not going to lose the state, the your app code will be updated and your state will be the same.
+Meteor by default when using React is already adding for you a package called `hot-module-replacement`. This package updates the javascript modules in a running app that were modified during a rebuild. Reduces the feedback cycle while developing so you can view and test changes quicker (it even updates the app before the build has finished). You are also not going to lose the state, your app code will be updated and your state will be the same.
 
 You should also add the package `dev-error-overlay` at this point so you can see the errors in your web browser.
 
