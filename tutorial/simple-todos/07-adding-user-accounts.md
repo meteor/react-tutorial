@@ -116,6 +116,7 @@ So you can get your authenticated user or null from `Meteor.user()`, you should 
 `imports/ui/App.jsx`
 
 ```js
+import { Meteor } from 'meteor/meteor';
 import React, { useState, Fragment } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { TasksCollection } from '/imports/api/TasksCollection';
