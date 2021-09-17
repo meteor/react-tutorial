@@ -10,7 +10,7 @@ To write queries and mutations you are going to use `gql` and so install `graphq
 meteor npm install graphql-tag
 ```
 
-Now let's start from the server side by creating a new `TaskScrema` and a new `TaskResolvers` to our tasks.
+Now let's start from the server side by creating a new `TaskSchema` and a new `TaskResolvers` to our tasks.
 
 `imports/api/graphql.js`
 
