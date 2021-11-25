@@ -2,7 +2,7 @@
 title: "8: Methods"
 ---
 
-Before this step, any user of the app could edit any part of the database making changes directly in the client. This might be fine for quick prototyping, but real applications need to control access to its data.
+Before this step, any user of the app could edit any part of the database making changes directly in the client. This might be fine for quick prototyping, but real applications need to control access to their data.
 
 In Meteor, the easiest way to make changes in the server safely is by declaring _methods_, instead of calling `insert`, `update`, or `remove` directly in the client.
 
@@ -38,7 +38,7 @@ Methods should be defined in code executed both in the client, and the server fo
 
 When we call a method on the client using `Meteor.call`, two things happen in parallel:
 
-1. The client sends a request to the sever to run the method in a secure environment.
+1. The client sends a request to the server to run the method in a secure environment.
 2. A simulation of the method runs directly on the client trying to predict the outcome of the call.
 
 This means that a newly created task actually appears on the screen before the result comes back from the server.
@@ -100,7 +100,7 @@ Meteor.methods({
 
 As you can see in the code we are also using the `check` package to make sure we are receiving the expected types of input, this is important to make sure you know exactly what you are inserting or updating in your database.
 
-The last part is to make sure your server is registering these methods, you can do this importing this file, to force the evaluation, in the `server/main.js`.
+The last part is to make sure your server is registering these methods, you can do this by importing this file, to force the evaluation, in the `server/main.js`.
 
 `server/main.js`
 
