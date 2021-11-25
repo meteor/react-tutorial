@@ -36,7 +36,7 @@ Meteor.publish('tasks', function publishTasks() {
 
 As you are using `this` inside this function you should not use `arrow function` (`=>`) as the arrow function does not provide a context for `this`, you need to use the function in the traditional way, using the `function` keyword.
 
-The last part is to make sure your server is registering this publication, you can do this importing this file, to force the evaluation, in the `server/main.js`.
+The last part is to make sure your server is registering this publication, you can do this by importing this file, to force the evaluation, in the `server/main.js`.
 
 `server/main.js`
 
@@ -172,7 +172,7 @@ Only the owner of a task should be able to change certain things. You should cha
 ..
 ```
 
-Why this is important if we are not returning tasks from other users in the client?
+Why is this important if we are not returning tasks from other users in the client?
 
 This is important because anyone can call Meteor `Methods` using the browser `console`. You can test this using your DevTools console tab and then type and hit enter: `Meteor.call('tasks.remove', 'xtPTsNECC3KPuMnDu');`. If you remove the validation from your remove Method and you pass one valid task `_id` from your database you will be able to remove it.
 
