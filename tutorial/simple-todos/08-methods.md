@@ -38,7 +38,7 @@ Methods should be defined in code executed both in the client, and the server fo
 
 When we call a method on the client using `Meteor.call`, two things happen in parallel:
 
-1. The client sends a request to the sever to run the method in a secure environment.
+1. The client sends a request to the server to run the method in a secure environment.
 2. A simulation of the method runs directly on the client trying to predict the outcome of the call.
 
 This means that a newly created task actually appears on the screen before the result comes back from the server.
