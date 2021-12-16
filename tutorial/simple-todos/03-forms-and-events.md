@@ -17,17 +17,17 @@ Create a new file `TaskForm.jsx` in your `ui` folder.
 `imports/ui/TaskForm.jsx`
 ```js
 import React, { useState } from 'react';
- 
+
 export const TaskForm = () => {
   const [text, setText] = useState("");
- 
+
   return (
     <form className="task-form">
       <input
         type="text"
         placeholder="Type to add new tasks"
       />
- 
+
       <button type="submit">Add Task</button>
     </form>
   );
@@ -44,7 +44,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Task } from './Task';
 import { TasksCollection } from '/imports/api/TasksCollection';
 import { TaskForm } from './TaskForm';
- 
+
 export const App = () => {
   const tasks = useTracker(() => TasksCollection.find({}).fetch());
 
@@ -60,7 +60,6 @@ export const App = () => {
     </div>
   );
 };
-
 ```
 
 ## 3.3: Update the Stylesheet
@@ -86,10 +85,10 @@ As you can see you are using the `useState` React Hook to store the `value` of y
 ```js
 import React, { useState } from 'react';
 import { TasksCollection } from '/imports/api/TasksCollection';
- 
+
 export const TaskForm = () => {
   const [text, setText] = useState("");
-  
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -111,7 +110,7 @@ export const TaskForm = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
- 
+
       <button type="submit">Add Task</button>
     </form>
   );
@@ -130,7 +129,7 @@ Now you just need to make a change which will make users happy: we need to show 
  
 export const App = () => {
   const tasks = useTracker(() => TasksCollection.find({}, { sort: { createdAt: -1 } }).fetch());
- ..
+  ..
 ```
 
 Your app should look like this:
