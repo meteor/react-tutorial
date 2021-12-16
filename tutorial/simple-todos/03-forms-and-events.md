@@ -40,6 +40,7 @@ Then we can simply add this to our `App` component above your list of tasks:
 
 `imports/ui/App.jsx`
 ```js
+import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Task } from './Task';
 import { TasksCollection } from '/imports/api/TasksCollection';
