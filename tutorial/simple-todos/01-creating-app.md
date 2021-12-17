@@ -42,7 +42,7 @@ This file will export a React component called `Task` that will represent one ta
 `imports/ui/Task.jsx`
 ```js
 import React from 'react';
- 
+
 export const Task = ({ task }) => {
   return <li>{task.text}</li>
 };
@@ -57,7 +57,7 @@ As you are not connecting to your server and your database yet let's define some
 `imports/ui/App.jsx`
 ```js
 import React from 'react';
- 
+
 const tasks = [
   {_id: 1, text: 'First Task'},
   {_id: 2, text: 'Second Task'},
@@ -81,13 +81,13 @@ See below that you will use a `.map` function from the `Array` object to iterate
 ```js
 import React from 'react';
 import { Task } from './Task';
- 
+
 const tasks = ..;
 
 export const App = () => (
   <div>
     <h1>Welcome to Meteor!</h1>
- 
+
     <ul>
       { tasks.map(task => <Task key={ task._id } task={ task }/>) }
     </ul>

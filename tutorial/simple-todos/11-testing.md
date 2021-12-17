@@ -215,7 +215,6 @@ if (Meteor.isServer) {
     });
   });
 }
-
 ```
 
 If you run the test command again or left it running in watch mode before, you should see the following output:

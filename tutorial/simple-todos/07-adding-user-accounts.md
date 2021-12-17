@@ -127,7 +127,7 @@ import { LoginForm } from './LoginForm';
 ..
 export const App = () => {
   const user = useTracker(() => Meteor.user());
-  
+
   ..
   return (
       ..
@@ -271,16 +271,16 @@ Now you can filter the tasks in the UI by the authenticated user. Use the user `
 ```js
 ..
     const hideCompletedFilter = { isChecked: { $ne: true } };
-  
+
     const userFilter = user ? { userId: user._id } : {};
-  
+
     const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
-  
+
     const tasks = useTracker(() => {
       if (!user) {
         return [];
       }
-  
+
       return TasksCollection.find(
         hideCompleted ? pendingOnlyFilter : userFilter,
         {
@@ -288,12 +288,12 @@ Now you can filter the tasks in the UI by the authenticated user. Use the user `
         }
       ).fetch();
     });
-  
+
     const pendingTasksCount = useTracker(() => {
       if (!user) {
         return 0;
       }
-  
+
       return TasksCollection.find(pendingOnlyFilter).count();
     });
 ..

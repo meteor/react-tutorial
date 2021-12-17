@@ -15,7 +15,7 @@ We can create a new collection to store our tasks by creating a new file at `imp
 `imports/api/TasksCollection.js`
 ```js
 import { Mongo } from 'meteor/mongo';
- 
+
 export const TasksCollection = new Mongo.Collection('tasks');
 ```
 
@@ -41,7 +41,7 @@ import { Meteor } from 'meteor/meteor';
 import { TasksCollection } from '/imports/api/TasksCollection';
 
 const insertTask = taskText => TasksCollection.insert({ text: taskText });
- 
+
 Meteor.startup(() => {
   if (TasksCollection.find().count() === 0) {
     [
@@ -83,14 +83,14 @@ import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { TasksCollection } from '/imports/api/TasksCollection';
 import { Task } from './Task';
- 
+
 export const App = () => {
   const tasks = useTracker(() => TasksCollection.find({}).fetch());
- 
+
   return (
     <div>
       <h1>Welcome to Meteor!</h1>
- 
+
       <ul>
         { tasks.map(task => <Task key={ task._id } task={ task }/>) }
       </ul>
@@ -125,4 +125,3 @@ But wait, how are my tasks coming from the server to the client? We are going to
 > Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step02) 
 
 In the next step we are going to create tasks using a form.
-

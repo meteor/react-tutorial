@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 ..
 export const App = () => {
   const [hideCompleted, setHideCompleted] = useState(false);
- 
+
   ..
     <div className="main">
       <TaskForm />
