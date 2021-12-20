@@ -164,7 +164,44 @@ export const App = () => {
 
 Ok, let's style the login form now:
 
-Wrap your pairs of label and input in `div`s so it will easier to control it on CSS.
+Wrap your pairs of label and input in `div`s so it will easier to control it on CSS. Do the same to the button tag.
+
+`imports/ui/LoginForm.jsx`
+
+```jsx
+<form onSubmit={submit} className="login-form">
+  <div>
+    <label htmlFor="username">Username</label>
+
+    <input
+      type="text"
+      placeholder="Username"
+      name="username"
+      required
+      onChange={(e) => setUsername(e.target.value)}
+    />
+  </div>
+
+  <div>
+    <label htmlFor="password">Password</label>
+
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      required
+      onChange={(e) => setPassword(e.target.value)}
+    />
+  </div>
+
+  <div>
+    <button type="submit">Log In</button>
+  </div>
+</form>
+
+```
+
+And then update the CSS:
 
 `client/main.css`
 
