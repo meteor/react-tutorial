@@ -3,7 +3,7 @@ title: "1: Creating the app"
 ---
 
 ## 1.1: Install Meteor
-First we need to install Meteor.
+First, we need to install Meteor.
 
 Install the latest official Meteor release [following the steps in our docs](https://docs.meteor.com/install.html).
 
@@ -31,7 +31,7 @@ Don't worry, Meteor will keep your app in sync with all your changes from now on
 
 Your React code will be located inside the `imports/ui` directory, and `App.jsx` file is the root component of your React To-do app.
 
-Take a quick look in all the files created by Meteor, you don't need to understand them now but it's good to know where they are.
+Take a quick look at all the files created by Meteor, you don't need to understand them now but it's good to know where they are.
 
 ## 1.3: Create Task Component
 
@@ -95,11 +95,11 @@ export const App = () => (
 );
 ```
 
-Remember to add the `key` property to your task, otherwise React will emit a warning because it will see many components of the same type as siblings. Without a key it will be hard for React to re-render one of them if necessary. 
+Remember to add the `key` property to your task, otherwise React will emit a warning because it will see many components of the same type as siblings. Without a key, it will be hard for React to re-render one of them if necessary. 
 
 > You can read more about React and Keys [here](https://reactjs.org/docs/lists-and-keys.html#keys).
 
-Remove the `Hello` and `Info` from your `App` component, remember to also remove the imports for them in top of the file. Remove the `Hello.jsx` and `Info.jsx` files as well.
+Remove the `Hello` and `Info` from your `App` component, remember to also remove the imports for them at the top of the file. Remove the `Hello.jsx` and `Info.jsx` files as well.
 
 ## 1.6 Mobile look
 
@@ -109,7 +109,7 @@ Let's see how your app is looking on Mobile. You can simulate a mobile environme
 
 Click on it and then select the phone that you want to simulate and in the top bar.
 
-> You can also check your app in your cellphone. To do so, connect to your App using your local IP in the navigation browser of your mobile browser.
+> You can also check your app on your cellphone. To do so, connect to your App using your local IP in the navigation browser of your mobile browser.
 >
 > This command should print your local IP for you on Unix systems at least
 `ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'`
@@ -148,6 +148,6 @@ meteor add dev-error-overlay
 
 You can try to make some mistakes and then you are going to see the errors in the browser and not only in the console.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step01) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step01) 
 
-In the next step we are going to work with our MongoDB database to store our tasks.
+In the next step, we are going to work with our MongoDB database to store our tasks.
