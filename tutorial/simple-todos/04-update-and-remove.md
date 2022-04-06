@@ -2,7 +2,7 @@
 title: '4: Update and Remove'
 ---
 
-Up until now you have only inserted documents into our collection. Let's take a look at how you can update and remove them by interacting with the user interface.
+Up until now, you have only inserted documents into our collection. Let's take a look at how you can update and remove them by interacting with the user interface.
 
 ## 4.1: Add Checkbox
 
@@ -38,7 +38,7 @@ export const Task = ({ task, onCheckboxClick }) => {
 
 ## 4.2: Toggle Checkbox
 
-Now you can update your task document toggling its `isChecked` field.
+Now you can update your task document by toggling its `isChecked` field.
 
 Create a function to change your document and pass it along to your `Task` component.
 
@@ -69,7 +69,7 @@ Your app should look like this:
 
 You can remove tasks with just a few lines of code.
 
-First add a button after text in your `Task` component and receive a callback function.
+First, add a button after text in your `Task` component and receive a callback function.
 
 `imports/ui/Task.jsx`
 
@@ -109,6 +109,6 @@ Your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step04-delete-button.png"/>
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step04) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step04) 
 
-In the next step we are going to improve the look of your app using CSS with Flexbox.
+In the next step, we are going to improve the look of your app using CSS with Flexbox.
