@@ -2,13 +2,13 @@
 title: "3: Forms and Events"
 ---
 
-All apps need to allow the user to perform some types of interaction with the data that is stored. In our case, the first type of interaction is to insert new tasks. Without it, our To-Do app wouldn't be very helpful.  
+All apps need to allow the user to perform some sort of interaction with the data that is stored. In our case, the first type of interaction is to insert new tasks. Without it, our To-Do app wouldn't be very helpful.  
 
-One of the main ways in which a user can insert or edit data in a website is through forms. In most cases it is a good idea to use the `<form>` tag since it gives semantic meaning to the elements inside it.
+One of the main ways in which a user can insert or edit data on a website is through forms. In most cases, it is a good idea to use the `<form>` tag since it gives semantic meaning to the elements inside it.
 
 ## 3.1: Create Task Form
 
-First we need to create a simple form component to encapsulate our logic. As you can see we set up the `useState` React Hook.
+First, we need to create a simple form component to encapsulate our logic. As you can see we set up the `useState` React Hook.
 
 Please note the _array destructuring_ `[text, setText]`, where `text` is the stored value which we want to use, which in this case will be a _string_; and `setText` is a _function_ used to update that value.
 
@@ -76,11 +76,11 @@ You also can style it as you wish. For now, we only need some margin at the top 
 
 ## 3.4: Add Submit Handler
 
-Now you can attach a submit handler to your form using the `onSubmit` event; and also plug your React Hook into the `onChange` event present in the input element.
+Now you can attach a submit handler to your form using the `onSubmit` event, and also plug your React Hook into the `onChange` event present in the input element.
 
 As you can see you are using the `useState` React Hook to store the `value` of your `<input>` element. Note that you also need to set your `value` attribute to the `text` constant as well, this will allow the `input` element to stay in sync with our hook.
 
-> In more complex applications you might want to implement some `debounce` or `throttle` logic if there many calculations happening between potentially frequent events like `onChange`. There are libraries which will help you with this, like [Lodash](https://lodash.com/), for instance.
+> In more complex applications you might want to implement some `debounce` or `throttle` logic if there are many calculations happening between potentially frequent events like `onChange`. There are libraries which will help you with this, like [Lodash](https://lodash.com/), for instance.
 
 `imports/ui/TaskForm.jsx`
 ```js
@@ -118,11 +118,11 @@ export const TaskForm = () => {
 };
 ```
 
-Also insert a date `createdAt` in your `task` document so you know when each task was created.
+Also, insert a date `createdAt` in your `task` document so you know when each task was created.
 
 ## 3.5: Show Newest Tasks First
 
-Now you just need to make a change which will make users happy: we need to show the newest tasks first. We can accomplish quite quickly by sorting our [Mongo](https://guide.meteor.com/collections.html#mongo-collections) query.
+Now you just need to make a change that will make users happy: we need to show the newest tasks first. We can accomplish this quite quickly by sorting our [Mongo](https://guide.meteor.com/collections.html#mongo-collections) query.
 
 `imports/ui/App.jsx`
 ```js
@@ -139,6 +139,6 @@ Your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step03-new-task-on-list.png"/>
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step03) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step03) 
 
-In the next step we are going to update your tasks state and provide a way for users to remove tasks.
+In the next step, we are going to update your tasks state and provide a way for users to remove tasks.
