@@ -2,17 +2,17 @@
 title: "6: Filter tasks"
 ---
 
-In this step you will filter your tasks by status and show the quantity of pending tasks.
+In this step, you will filter your tasks by status and show the number of pending tasks.
 
 ## 6.1: useState
 
-First you are going to add a button to show or hide the completed tasks from the list.
+First, you are going to add a button to show or hide the completed tasks from the list.
 
 The `useState` function from React is the best way to keep the state of this button. It returns an array with two items, where the first element is the value of the state, and the second is a setter function that is how you are going to update your state. You can use _array destructuring_ to get these two back and already declare a variable for them.
 
 Bear in mind that the names used for the constants do not belong to the React API, you can name them whatever you like.
 
-Also add a `button` below the task form that will display a different text based on the current state.
+Also, add a `button` below the task form that will display a different text based on the current state.
 
 `imports/ui/App.jsx`
 ```js
@@ -109,7 +109,7 @@ You should avoid adding zero to your app bar when there are no pending tasks.
 ..
 ```
 
-You could do both finds in the same `useTracker` and then return an object with both properties but to have a code that is easier to understand code we created two different trackers here.
+You could do both finds in the same `useTracker` and then return an object with both properties but to have a code that is easier to understand, we created two different trackers here.
 
 Your app should look like this:
 
