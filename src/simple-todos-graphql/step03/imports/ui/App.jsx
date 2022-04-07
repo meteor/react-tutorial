@@ -5,7 +5,7 @@ import { TasksCollection } from '/imports/db/TasksCollection';
 import { Task } from './Task';
 import { TaskForm } from './TaskForm';
 import { LoginForm } from './LoginForm';
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 const toggleChecked = ({ _id, isChecked }) =>
@@ -31,7 +31,7 @@ export const App = () => {
 
   const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-  const  { loading, data, refetch } = useQuery(tasksQuery)
+  const { loading, data, refetch } = useQuery(tasksQuery);
 
   const { tasksStatus, pendingTasksCount, isLoading } = useTracker(() => {
     const noDataAvailable = { tasksStatus: [], pendingTasksCount: 0 };
@@ -60,7 +60,7 @@ export const App = () => {
     pendingTasksCount ? ` (${pendingTasksCount})` : ''
   }`;
 
-  const tasksData = data && data.tasks || [];
+  const tasksData = (data && data.tasks) || [];
   const tasks = tasksData.map(({ _id, ...rest }) => ({
     _id,
     ...rest,
@@ -94,7 +94,7 @@ export const App = () => {
               {user.username} 🚪
             </div>
 
-            <TaskForm refetch={refetch}/>
+            <TaskForm refetch={refetch} />
 
             <div className="filter">
               <button onClick={() => setHideCompleted(!hideCompleted)}>
