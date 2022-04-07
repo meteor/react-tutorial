@@ -53,6 +53,7 @@ Inside Methods you have a few special properties ready to be used on `this` obje
 
 `imports/api/tasksMethods.js`
 ```js
+import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { TasksCollection } from './TasksCollection';
  
