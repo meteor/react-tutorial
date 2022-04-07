@@ -8,6 +8,8 @@ Important: we are not recommending you to avoid Publications and Methods, the go
 
 Start off by installing the package [quave:graphql](https://github.com/quavedev/graphql) following all the steps in the `Installation` section. The server and client set up we'll cover below.
 
+> Important note: When installing the graphql and graphql-tools packages, make sure to keep in those versions: `graphql@15.8.0 graphql-tool@7.0.5`. Higher versions are not supported by quave:graphql.
+
 This package uses Meteor [DDP](https://github.com/meteor/meteor/blob/devel/packages/ddp/DDP.md) as data layer and Apollo as GraphQL implementation.
 
 ## 1.2 Set up server
