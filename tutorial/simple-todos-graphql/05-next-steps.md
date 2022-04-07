@@ -2,16 +2,16 @@
 title: "05: Next Steps"
 ---
 
-Congratulations, now you now how to use GraphQL with Meteor! Wow!
+Congratulations, now you know how to use GraphQL with Meteor! Wow!
 
-Challenges to complete the app:
+Challenges to completing the app:
 - Stop using the subscription to get the tasks' status and start getting the status from the current query
 - Stop using the subscription to get the task count and create a new query to get it
-- Remove all the methods and start to using just mutations
+- Remove all the methods and start using just mutations
 - Fix all the tests
 - Stop calling the function `refetch` and just use `refetchQueries` to refetch the tasks
 
-Important: we are not recommending you to avoid Publications and Methods, the goal of this tutorial is just to teach you how to use Meteor with GraphQL in case you like both.
+Important: we are not recommending you avoid Publications and Methods, the goal of this tutorial is just to teach you how to use Meteor with GraphQL in case you like both.
 
 Things to do on Galaxy:
 - Check your logs on Galaxy, watch [here](https://www.youtube.com/watch?v=WPYyHeWM21Q) or read [here](https://cloud-guide.meteor.com/logs.html);
