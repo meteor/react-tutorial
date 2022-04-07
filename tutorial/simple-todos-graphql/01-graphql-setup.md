@@ -48,13 +48,13 @@ startGraphQLServer({ typeDefs: [UserSchema], resolvers: [UserResolvers], log });
 
 ```
 
-The code inside this file is fairly simple. We have our schema inside the variable `UserSchema` and we have our resolver inside our variable `UserResolvers`. Then, we provide these data to the function `startGraphQLServer`, that is responsible for starting the GraphQL server, alongside with a log function that will be called every time we have an error with the GraphQL in the server side.
+The code inside this file is fairly simple. We have our schema inside the variable `UserSchema` and we have our resolver inside our variable `UserResolvers`. Then, we provide these data to the function `startGraphQLServer`, which is responsible for starting the GraphQL server, alongside a log function that will be called every time we have an error with the GraphQL on the server side.
 
 For now, we just have a `loggedUser` query that we'll test soon using the Apollo Dev Tools.
 
-If you want to learn how schemas and resolvers works on GraphQL, you can check out their [docs](https://graphql.org/learn/).
+If you want to learn how schemas and resolvers work on GraphQL, you can check out their [docs](https://graphql.org/learn/).
 
-Now, let's import this file inside our app server.
+Now, let's import this file into our app server.
 
 `server/main.js`
 
@@ -139,6 +139,6 @@ If you log out and then hit the run button again, you should see something like 
 
 This shows that our app is now working with GraphQL.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step01)
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step01)
 
-In the next step we'll see how to load specific data to our Minimongo.
+In the next step, we'll see how to load specific data to our Minimongo.
