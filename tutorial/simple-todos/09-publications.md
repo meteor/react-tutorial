@@ -86,7 +86,7 @@ It's also a good moment for us to refactor our code to use a single `useTracker`
 
 ## 9.4: Loading state
 
-You should also add a loading state for your app, that means, while the subscription data is not ready you should inform this to your user. To discover if the subscription is ready or not you should get the return of the `subscribe` call, it is an object with the subscription state including the `ready` function that will return a `boolean`. 
+You should also add a loading state for your app, that means, while the subscription data is not ready you should inform to your user. To discover if the subscription is ready or not you should get the return of the `subscribe` call, it is an object with the subscription state including the `ready` function that will return a `boolean`. 
 
 `imports/ui/App.jsx`
 
@@ -176,6 +176,6 @@ Why is this important if we are not returning tasks from other users in the clie
 
 This is important because anyone can call Meteor `Methods` using the browser `console`. You can test this using your DevTools console tab and then type and hit enter: `Meteor.call('tasks.remove', 'xtPTsNECC3KPuMnDu');`. If you remove the validation from your remove Method and you pass one valid task `_id` from your database you will be able to remove it.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step09) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step09) 
 
-In the next step we are going to run the app on mobile environment as a Native app.
+In the next step, we are going to run the app on a mobile environment as a Native app.
