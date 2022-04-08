@@ -23,3 +23,5 @@ accounts-password@2.3.1
 meteortesting:mocha
 quave:testing
 dev-error-overlay@0.1.1
+accounts-github
+service-configuration
