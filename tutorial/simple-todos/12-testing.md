@@ -6,7 +6,7 @@ Now we've created a few features for our application, let's add a test to ensure
 
 We'll write a test that executes one of our Methods and verifies that it works correctly.
 
-## 11.1: Install Dependencies
+## 12.1: Install Dependencies
 
 We'll add a test driver for the Mocha JavaScript test framework, along with a test assertion library:
 
@@ -39,7 +39,7 @@ When you run with these options, you can also see the results of the tests in th
 
 <img width="500px" src="/simple-todos/assets/step12-test-report.png"/>
 
-## 11.2: Scaffold Test
+## 12.2: Scaffold Test
 
 However, if you would prefer to split your tests across multiple modules, you can do that too. Add a new test module called `imports/api/tasksMethods.tests.js`.
 
@@ -65,7 +65,7 @@ And import it on `tests/main.js` like `import '/imports/api/tasksMethods.tests.j
 import '/imports/api/tasksMethods.tests.js';
 ```
 
-## 11.3: Prepare Database
+## 12.3: Prepare Database
 
 In any test you need to ensure the database is in the state we expect before beginning. You can use Mocha's `beforeEach` construct to do that easily:
 
@@ -97,7 +97,7 @@ if (Meteor.isServer) {
 
 Here you are creating a single task that's associated with a random userId that'll be different for each test run.
 
-## 11.4: Test Task Removal
+## 12.4: Test Task Removal
 
 Now you can write the test to call the `tasks.remove` method as that user and verify the task got deleted, as you are going to test a method and we want to mock the authenticated user you can install this utility package to make your life easier:
 
@@ -142,7 +142,7 @@ if (Meteor.isServer) {
 
 Remember to import `assert` from `chai` (`import { assert } from 'chai';`)
 
-## 11.5: More tests
+## 12.5: More tests
 
 You can add as many tests you want, below you can find a few other tests that can be helpful for you to have more ideas of what to test and how.:
 

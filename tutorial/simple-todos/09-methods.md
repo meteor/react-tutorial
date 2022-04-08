@@ -12,7 +12,7 @@ Meteor Method is a way to communicate with your server using the function `Meteo
  
 > You can read more about Methods [here](https://guide.meteor.com/methods.html).
 
-## 8.1: Disable Quick Prototyping
+## 9.1: Disable Quick Prototyping
 
 Every newly created Meteor project has the `insecure` package installed by default.
 
@@ -26,7 +26,7 @@ meteor remove insecure
 
 Now your app changes don't work anymore as you have revoked all client-side database permissions. Try to insert a new task for example, you are going to see `insert failed: Access denied` in your browser console.
 
-## 8.2: Add Task Methods
+## 9.2: Add Task Methods
 
 Now you need to define methods.
 
@@ -114,7 +114,7 @@ import '/imports/api/tasksMethods';
 
 See that you don't need to get any symbol back from the import, you only need to ask for your server to import the file then `Meteor.methods` will be evaluated and will register your methods on server startup.
 
-## 8.3: Implement Method Calls
+## 9.3: Implement Method Calls
 
 As you have defined your methods, you need to update the places we were operating the collection to use them instead.
 
@@ -173,7 +173,7 @@ Now your inputs and buttons will start working again. What have you gained?
 1. We can add extra validation logic to the methods later if we want.
 1. Our client code is more isolated from our database logic. Instead of a lot of stuff happening in our event handlers, we have methods callable from anywhere.
 
-## 8.4: api and db folders
+## 9.4: api and db folders
 
 We would like to take a moment here to think, the folder where the collection file is located is `api` but API in your project means a communication layer between server and client but the collection is not performing this role anymore. So you should move your `TasksCollection` file to a new folder called `db`.
 

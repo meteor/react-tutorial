@@ -10,7 +10,7 @@ Meteor makes it easy to set up all the tools required to build mobile apps, but 
 
 > Important: Mobile set up and settings are very dynamic, if you find any step below not working as specified or any linked document that is not up-to-date, please open an issue, and we are going to update it. You can also open PRs if you know what the change should be. 
 
-## 10.1: iOS Simulator
+## 11.1: iOS Simulator
 
 If you have a Mac, you can run your app inside the iOS simulator.
 
@@ -27,7 +27,7 @@ You will see the iOS simulator pop up with your app running inside.
 
 <img width="300px" src="/simple-todos/assets/step11-ios-simulator.png"/>
 
-## 10.2: Android Emulator
+## 11.2: Android Emulator
 
 Follow this [guide](https://guide.meteor.com/cordova.html#installing-prerequisites-android) to install all the development prerequisites for Android.
 
@@ -47,7 +47,7 @@ After some initialization, you will see an Android emulator pop up, running your
 
 <img width="300px" src="/simple-todos/assets/step11-android-emulator.png"/>
 
-## 10.3: Android Device
+## 11.3: Android Device
 
 First, complete all the steps above to set up the Android tools on your system. Then, make sure you have [USB Debugging](http://developer.android.com/tools/device.html#developer-device-options) enabled on your phone and it is plugged into your computer with a USB cable. Also, you must quit the Android emulator before running on a device.
 
@@ -59,7 +59,7 @@ meteor run android-device
 
 The app will be built and installed on your device.
 
-## 10.4: iPhone or iPad
+## 11.4: iPhone or iPad
 
 > This requires an Apple developer account.
 

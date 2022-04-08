@@ -8,7 +8,7 @@ The best place to run your Meteor app is [Galaxy](https://www.meteor.com/cloud).
 
 > If you have any trouble with this step you should send an email to Galaxy support and they are going to help you, send your message to `support@meteor.com`. Try to explain in detail what is the issue and you are going to receive help as soon as possible. Also make sure you include the subject: `React Tutorial` so you know where are you coming from.
 
-## 12.1: Create your account
+## 13.1: Create your account
 
 Do you have a Meteor Cloud Account? No? Ok, let's fix it.
 
@@ -20,7 +20,7 @@ Sign up with GitHub and proceed from there. It's just going to ask you an userna
 
 Done, your account is created. You can use this account to access [atmospherejs.com](https://atmospherejs.com/), [Forums](https://forums.meteor.com), and much more including Galaxy free deploy.
 
-## 12.2: Deploy it
+## 13.2: Deploy it
 
 Now you are ready to deploy, make sure you run `meteor npm install` before deploying to make sure all your dependencies are installed.
 
@@ -63,11 +63,13 @@ This process usually takes around 5 minutes but it depends on your internet spee
 
 You can check your logs on Galaxy, including the part that Galaxy is building your Docker image and deploying it.
 
-## 12.3: Access and enjoy
+## 13.3: Access and enjoy
 
 Now you should be able to access your Galaxy dashboard at `https://galaxy.meteor.com/app/react-tutorial.meteorapp.com` (replacing `react-tutorial` with your sub-domain)
 
 And, of course, be able to access and use your app in the domain that you chose, in our case here [react-tutorial.meteorapp.com](http://react-tutorial.meteorapp.com). Congrats!
+
+Don't forget to update your URLs on Github OAuth Application. Find your application on [this link](https://github.com/settings/developers), and update the `Homepage URL` and `Authorization callback URL` to your app domain, in our case [react-tutorial.meteorapp.com](http://react-tutorial.meteorapp.com)
 
 > We deployed to Galaxy running in the US (us-east-1), we also have Galaxy running in other regions in the world, check the list [here](https://cloud-guide.meteor.com/deploy-region.html) 
 
