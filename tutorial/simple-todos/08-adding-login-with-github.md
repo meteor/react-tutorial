@@ -90,5 +90,74 @@ export const LoginForm = () => {
     </form>
   );
 };
-
 ```
+
+Your app should look like this: 
+<div>
+  <img width="200px" src="/simple-todos/assets/step08-github-login.png"/>
+</div>
+
+## 8.4: Github Credentials
+
+In order to our Github login works, we need to get our Github Credentials first.
+Register your OAuth Application [on this link](https://github.com/settings/applications/new) filling the `Application Name`, `Homepage URL`, and the `Authorization callback URL`, for both URLs you can use `http://localhost:3000` for now.
+Click on `Register Application`.
+
+On the next screen, grab your `Client ID` and click on `Generate a new client secret` and copy your new client secret.
+We are going to use both of these keys to connect to Github.
+
+Now, we need to configure our server to fully connect to Github, go to `server/main.js`, and import the `ServiceConfiguration` to add your Github credentials.
+
+`server/main.js`
+```js
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+import { TasksCollection } from '/imports/api/TasksCollection';
+import { ServiceConfiguration } from 'meteor/service-configuration';
+
+...
+
+Meteor.startup(() => {
+...
+} 
+
+ServiceConfiguration.configurations.upsert(
+  { service: 'github' },
+  {
+    $set: {
+      loginStyle: 'popup',
+      clientId: '', // insert your clientId here
+      secret: '', // insert your secret here
+    },
+  }
+);
+```
+
+Awesome! You now have your Github authentication configured, you can try login in with your own Github account.
+
+## 8.5: Fixing the display name
+
+You will notice when you login into our Todo app, that your name is not appearing on the right corner next to the logout door button.
+That happens because the data structure is a little bit different and we need to fix that.
+
+The `user.username` is null in this case, so we need to grab the user information from `user.profile.name`.
+
+`imports/ui/App.jsx`
+```js
+export const App = () => {
+  ...
+    {user ? (
+      <Fragment>
+        <div className="user" onClick={logout}>
+          {user.username || user.profile.name} 🚪
+        </div>
+
+        <TaskForm user={user} />
+...
+```
+
+And now you have everything working as before.
+
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step08) 
+
+In the next step, we are going to start using Methods to only change the data after checking some conditions.

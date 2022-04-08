@@ -408,4 +408,4 @@ Your app should look like this:
 
 > Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step07) 
 
-In the next step, we are going to start using Methods to only change the data after checking some conditions.
+In the next step, we are going to implement the authentication using the Github provider.
