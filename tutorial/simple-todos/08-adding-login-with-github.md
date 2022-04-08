@@ -71,3 +71,24 @@ Also, let's add some style to it to look beautiful:
 }
 ```
 
+## 8.3: Login Form
+
+We need to import our new component into our `LoginForm.jsx`
+
+`imports/ui/LoginForm.jsx`
+```js
+import { Meteor } from 'meteor/meteor';
+import React, { useState } from 'react';
+import { LoginWithGithub } from './LoginWithGithub';
+
+export const LoginForm = () => {
+  ...
+  return (
+    <form onSubmit={submit} className="login-form">
+      <LoginWithGithub />
+      ...
+    </form>
+  );
+};
+
+```

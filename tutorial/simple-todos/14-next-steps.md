@@ -1,5 +1,5 @@
 ---
-title: "13: Next Steps"
+title: "14: Next Steps"
 ---
 
 Congratulations on your newly built Meteor app and it is running on Galaxy! Wow!

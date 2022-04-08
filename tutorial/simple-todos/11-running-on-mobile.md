@@ -1,5 +1,5 @@
 ---
-title: "10: Running on Mobile"
+title: "11: Running on Mobile"
 ---
 
 Currently, Meteor on Windows does not support mobile builds. If you are using Meteor on Windows, you should skip this step.
@@ -25,7 +25,7 @@ meteor run ios
 
 You will see the iOS simulator pop up with your app running inside.
 
-<img width="300px" src="/simple-todos/assets/step10-ios-simulator.png"/>
+<img width="300px" src="/simple-todos/assets/step11-ios-simulator.png"/>
 
 ## 10.2: Android Emulator
 
@@ -45,7 +45,7 @@ meteor run android
 
 After some initialization, you will see an Android emulator pop up, running your app inside a native Android wrapper. The emulator can be somewhat slow, so if you want to see what it's really like using your app, you should run it on an actual device.
 
-<img width="300px" src="/simple-todos/assets/step10-android-emulator.png"/>
+<img width="300px" src="/simple-todos/assets/step11-android-emulator.png"/>
 
 ## 10.3: Android Device
 
@@ -71,6 +71,6 @@ meteor run ios-device
 
 This will open Xcode with a project for your iOS app. You can use Xcode to then launch the app on any device or simulator that Xcode supports.
 
-> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step10) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step11) 
 
 In the next step, we are going to add automatic tests.

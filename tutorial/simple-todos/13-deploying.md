@@ -1,5 +1,5 @@
 ---
-title: '12: Deploying'
+title: '13: Deploying'
 ---
 
 Now your app is tested and ready to be published so anyone can use it.
@@ -14,7 +14,7 @@ Do you have a Meteor Cloud Account? No? Ok, let's fix it.
 
 Go to [cloud.meteor.com](https://cloud.meteor.com?isSignUp=true). You are going to see a form like this:
 
-<img width="500px" src="/simple-todos/assets/step12-sign-up.png"/>
+<img width="500px" src="/simple-todos/assets/step13-sign-up.png"/>
 
 Sign up with GitHub and proceed from there. It's just going to ask you an username and password, you will need those to deploy your app.
 
@@ -73,6 +73,6 @@ And, of course, be able to access and use your app in the domain that you chose,
 
 This is huge, you have your Meteor app running on Galaxy, ready to be used by anyone in the world!
 
-> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step12) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step13) 
 
 In the next step, we are going to provide some ideas for you to continue developing your app and more content to see next.

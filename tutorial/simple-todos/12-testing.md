@@ -1,5 +1,5 @@
 ---
-title: '11: Testing'
+title: '12: Testing'
 ---
 
 Now we've created a few features for our application, let's add a test to ensure that we don't regress and that it works the way we expect.
@@ -37,7 +37,7 @@ Where are these two tests coming from? Every new Meteor application includes a `
 
 When you run with these options, you can also see the results of the tests in the app URL in your browser:
 
-<img width="500px" src="/simple-todos/assets/step11-test-report.png"/>
+<img width="500px" src="/simple-todos/assets/step12-test-report.png"/>
 
 ## 11.2: Scaffold Test
 
@@ -253,6 +253,6 @@ This is almost the same as the earlier command, except that it also loads your a
 
 There's a lot more you can do with Meteor tests! You can read more about it in the Meteor Guide [article on testing](https://guide.meteor.com/testing.html).
 
-> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step11) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step12) 
 
 In the next step, we are going to deploy your app to Galaxy, the best hosting for Meteor apps, developed by the same team behind Meteor.

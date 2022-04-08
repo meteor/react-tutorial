@@ -1,5 +1,5 @@
 ---
-title: "8: Methods"
+title: "9: Methods"
 ---
 
 Before this step, any user of the app could edit any part of the database making changes directly in the client. This might be fine for quick prototyping, but real applications need to control access to their data.
@@ -193,6 +193,6 @@ Your app should look exactly as before as we didn't change anything that is visi
 
 We recommend that you change your `check` calls for wrong types to produce some errors, then you could understand what will happen in these cases as well.
 
-> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step08) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step09) 
 
 In the next step, we are going to start using Publications to just publish the data that is necessary on each case.

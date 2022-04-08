@@ -71,7 +71,7 @@ export const App = () => {
         {user ? (
           <Fragment>
             <div className="user" onClick={logout}>
-              {user.username} 🚪
+              {user.username || user.profile.name} 🚪
             </div>
 
             <TaskForm user={user} />
