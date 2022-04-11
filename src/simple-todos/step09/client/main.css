@@ -182,13 +182,17 @@ header {
   font-weight: bold;
 }
 
-.loading {
+.github-btn {
+  border: 1px solid #e1e5f0;
+  background-color: #fff;
+  width: 245px;
+  margin: 0 auto 16px;
+  color: black;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-
   justify-content: center;
   align-items: center;
+}
 
-  font-weight: bold;
+.github-btn > div {
+  margin-left: 4px;
 }

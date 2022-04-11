@@ -12,7 +12,7 @@ meteor add accounts-password
 
 > There are many more authentication methods supported. You can read more about the accounts system [here](https://docs.meteor.com/api/accounts.html).
 
-We also recommend you to install `bcrypt` node module, otherwise you are going to see a warning saying that you are using pure-Javascript implementation of it.
+We also recommend you to install `bcrypt` node module, otherwise, you are going to see a warning saying that you are using a pure-Javascript implementation of it.
 
 ```
 meteor npm install --save bcrypt
@@ -105,9 +105,9 @@ Ok, now you have a form, let's use it.
 
 Our app should only allow an authenticated user to access its task management features.
 
-We can accomplish that returning the `LoginForm` component when we don't have an authenticated user, otherwise we return the form, filter, and list component.
+We can accomplish that by returning the `LoginForm` component when we don't have an authenticated user, otherwise we return the form, filter, and list component.
 
-You should first wrap the 3 components (form, filter and list) in a `<Fragment>`, Fragment is a special component in React that you can use to group components together without affecting your final DOM, it means without affecting your UI as it is not going to introduce other elements in the HTML.
+You should first wrap the 3 components (form, filter, and list) in a `<Fragment>`, Fragment is a special component in React that you can use to group components together without affecting your final DOM, it means without affecting your UI as it is not going to introduce other elements in the HTML.
 
 > Read more about Fragments [here](https://reactjs.org/docs/fragments.html)
 
@@ -254,7 +254,7 @@ Every task should have an owner from now on. So go to your database, as you lear
 
 Change your `server/main.js` to add the seed tasks using your `meteorite` user as owner.
 
-Make sure you restart the server after this change so `Meteor.startup` block will run again. This is probably going to happen automatically any way as you are going to make changes in the server side code.
+Make sure you restart the server after this change so `Meteor.startup` block will run again. This is probably going to happen automatically anyway as you are going to make changes in the server side code.
 
 `server/main.js`
 
@@ -339,7 +339,7 @@ Now you can filter the tasks in the UI by the authenticated user. Use the user `
 ..
 ```
 
-Also update the `insert` call to include the field `userId` in the `TaskForm`. You should pass the user from the `App` component to the `TaskForm`.
+Also, update the `insert` call to include the field `userId` in the `TaskForm`. You should pass the user from the `App` component to the `TaskForm`.
 
 `imports/ui/TaskForm.jsx`
 ```js
@@ -367,7 +367,7 @@ export const TaskForm = ({ user }) => {
 
 We also can better organize our tasks by showing the username of the owner below our app bar. You can include a new `div` right after our `Fragment` start tag.
 
-On this you can add an `onClick` handler to logout the user as well. It is very straightforward, just call `Meteor.logout()` on it.
+On this, you can add an `onClick` handler to logout the user as well. It is very straightforward, just call `Meteor.logout()` on it.
 
 `imports/ui/App.jsx`
 
@@ -399,13 +399,13 @@ Remember to style your user name as well.
 }
 ```
 
-Phew! You have done quite a lot in this step. Authenticated the user, set the user in the tasks and provided a way for the user to log out.
+Phew! You have done quite a lot in this step. Authenticated the user, set the user in the tasks, and provided a way for the user to log out.
 
 Your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step07-login.png"/>
 <img width="200px" src="/simple-todos/assets/step07-logout.png"/>
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step07) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step07) 
 
-In the next step we are going to start using Methods to only change the data after checking some conditions.
+In the next step, we are going to implement the authentication using the Github provider.

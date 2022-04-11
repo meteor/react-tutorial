@@ -8,6 +8,8 @@ Important: we are not recommending you to avoid Publications and Methods, the go
 
 Start off by installing the package [quave:graphql](https://github.com/quavedev/graphql) following all the steps in the `Installation` section. The server and client set up we'll cover below.
 
+> Important note: When installing the graphql and graphql-tools packages, make sure to keep in those versions: `graphql@15.8.0 graphql-tool@7.0.5`. Higher versions are not supported by quave:graphql.
+
 This package uses Meteor [DDP](https://github.com/meteor/meteor/blob/devel/packages/ddp/DDP.md) as data layer and Apollo as GraphQL implementation.
 
 ## 1.2 Set up server
@@ -48,13 +50,13 @@ startGraphQLServer({ typeDefs: [UserSchema], resolvers: [UserResolvers], log });
 
 ```
 
-The code inside this file is fairly simple. We have our schema inside the variable `UserSchema` and we have our resolver inside our variable `UserResolvers`. Then, we provide these data to the function `startGraphQLServer`, that is responsible for starting the GraphQL server, alongside with a log function that will be called every time we have an error with the GraphQL in the server side.
+The code inside this file is fairly simple. We have our schema inside the variable `UserSchema` and we have our resolver inside our variable `UserResolvers`. Then, we provide these data to the function `startGraphQLServer`, which is responsible for starting the GraphQL server, alongside a log function that will be called every time we have an error with the GraphQL on the server side.
 
 For now, we just have a `loggedUser` query that we'll test soon using the Apollo Dev Tools.
 
-If you want to learn how schemas and resolvers works on GraphQL, you can check out their [docs](https://graphql.org/learn/).
+If you want to learn how schemas and resolvers work on GraphQL, you can check out their [docs](https://graphql.org/learn/).
 
-Now, let's import this file inside our app server.
+Now, let's import this file into our app server.
 
 `server/main.js`
 
@@ -139,6 +141,6 @@ If you log out and then hit the run button again, you should see something like 
 
 This shows that our app is now working with GraphQL.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step01)
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step01)
 
-In the next step we'll see how to load specific data to our Minimongo.
+In the next step, we'll see how to load specific data to our Minimongo.

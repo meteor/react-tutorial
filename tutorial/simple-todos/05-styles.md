@@ -6,7 +6,7 @@ title: '5: Styles'
 
 Our user interface up until this point has looked quite ugly. Let's add some basic styling which will serve as the foundation for a more professional looking app.
 
-Replace the content of our `client/main.css` file with the one below, the idea is to have an app bar in the top, and a scrollable content including:
+Replace the content of our `client/main.css` file with the one below, the idea is to have an app bar at the top, and a scrollable content including:
 
 - form to add new tasks;
 - list of tasks.
@@ -186,7 +186,7 @@ Now you need to add some elements around your components. You are going to add a
 
 > In React we use `className` instead of `class` as React uses Javascript to define the UI and `class` is a reserved word in Javascript.
 
-Also choose a better title for your app, Meteor is amazing but you don't want to see `Welcome to Meteor!` in your app top bar all the time.
+Also, choose a better title for your app, Meteor is amazing but you don't want to see `Welcome to Meteor!` in your app top bar all the time.
 
 You could choose something like:
 
@@ -202,6 +202,6 @@ Your app should look like this:
 
 <img width="200px" src="/simple-todos/assets/step05-styles.png"/>
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step05) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step05) 
 
-In the next step we are going to make this task list more interactive, for example, providing a way to filter tasks.
+In the next step, we are going to make this task list more interactive, for example, providing a way to filter tasks.

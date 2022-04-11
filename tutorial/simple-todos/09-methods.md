@@ -1,5 +1,5 @@
 ---
-title: "8: Methods"
+title: "9: Methods"
 ---
 
 Before this step, any user of the app could edit any part of the database making changes directly in the client. This might be fine for quick prototyping, but real applications need to control access to their data.
@@ -12,7 +12,7 @@ Meteor Method is a way to communicate with your server using the function `Meteo
  
 > You can read more about Methods [here](https://guide.meteor.com/methods.html).
 
-## 8.1: Disable Quick Prototyping
+## 9.1: Disable Quick Prototyping
 
 Every newly created Meteor project has the `insecure` package installed by default.
 
@@ -26,7 +26,7 @@ meteor remove insecure
 
 Now your app changes don't work anymore as you have revoked all client-side database permissions. Try to insert a new task for example, you are going to see `insert failed: Access denied` in your browser console.
 
-## 8.2: Add Task Methods
+## 9.2: Add Task Methods
 
 Now you need to define methods.
 
@@ -43,16 +43,17 @@ When we call a method on the client using `Meteor.call`, two things happen in pa
 
 This means that a newly created task actually appears on the screen before the result comes back from the server.
 
-If the result matches that of the server everything remains as is, otherwise the UI gets patched to reflect the actual state of the server.
+If the result matches that of the server everything remains as is, otherwise, the UI gets patched to reflect the actual state of the server.
 
 > Meteor does all this work for you, you don't need to worry about it but it's important to understand what is happening. You can read more about Optimistic UI [here](https://blog.meteor.com/optimistic-ui-with-meteor-67b5a78c3fcf).
 
-Now you should add a new file called `tasksMethods` in your `imports/api` folder. In this file for each operation that you are doing in the client and next we are going to call these Methods from the client instead of using Mini Mongo operations directly.
+Now you should add a new file called `tasksMethods` in your `imports/api` folder. In this file for each operation that you are doing in the client next, we are going to call these Methods from the client instead of using Mini Mongo operations directly.
 
-Inside Methods you have a few special properties ready to be used on `this` object, for example you have the `userId` of the authenticated user.
+Inside Methods you have a few special properties ready to be used on `this` object, for example, you have the `userId` of the authenticated user.
 
 `imports/api/tasksMethods.js`
 ```js
+import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { TasksCollection } from './TasksCollection';
  
@@ -113,7 +114,7 @@ import '/imports/api/tasksMethods';
 
 See that you don't need to get any symbol back from the import, you only need to ask for your server to import the file then `Meteor.methods` will be evaluated and will register your methods on server startup.
 
-## 8.3: Implement Method Calls
+## 9.3: Implement Method Calls
 
 As you have defined your methods, you need to update the places we were operating the collection to use them instead.
 
@@ -166,17 +167,17 @@ const deleteTask = ({ _id }) => Meteor.call('tasks.remove', _id);
 ..
 ```
 
-Now your inputs and buttons will start working again. What you gained?
+Now your inputs and buttons will start working again. What have you gained?
 
-1. When we insert tasks into the database, we can securely verify that the user is authenticated; the `createdAt` field is correct; and the `userId` is legitimate.
+1. When we insert tasks into the database, we can securely verify that the user is authenticated; the `createdAt` field is correct, and the `userId` is legitimate.
 1. We can add extra validation logic to the methods later if we want.
 1. Our client code is more isolated from our database logic. Instead of a lot of stuff happening in our event handlers, we have methods callable from anywhere.
 
-## 8.4: api and db folders
+## 9.4: api and db folders
 
 We would like to take a moment here to think, the folder where the collection file is located is `api` but API in your project means a communication layer between server and client but the collection is not performing this role anymore. So you should move your `TasksCollection` file to a new folder called `db`.
 
-This change is not required but it's recommended to keep our names consistent with the reality.
+This change is not required but it's recommended to keep our names consistent with reality.
 
 Remember to fix your imports, you have 4 imports to `TasksCollection` in the following files:
 - `imports/api/tasksMethods.js`
@@ -192,6 +193,6 @@ Your app should look exactly as before as we didn't change anything that is visi
 
 We recommend that you change your `check` calls for wrong types to produce some errors, then you could understand what will happen in these cases as well.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step08) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step09) 
 
-In the next step we are going to start using Publications to just publish the data that is necessary on each case.
+In the next step, we are going to start using Publications to just publish the data that is necessary on each case.

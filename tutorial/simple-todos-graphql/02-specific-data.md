@@ -6,9 +6,9 @@ Before doing our queries and mutations with GraphQL, we'll first load fewer data
 
 ## 2.1 Meteor Livedata
 
-Meteor is great to use with reactive data. That's why it's so easy to create an app like our to-do that exchange data between client and server without any problems in a fast way. But, when our app starts to scaling up and having more live queries in the servers due to many subscriptions, the application server can consume more memory and maybe you don't need real time updates everywhere.
+Meteor is great to use with reactive data. That's why it's so easy to create an app like our to-do that exchanges data between client and server without any problems in a fast way. But, when our app starts to scaling up and having more live queries in the servers due to many subscriptions, the application server can consume more memory and maybe you don't need real time updates everywhere.
 
-That doesn't mean a problem with Meteor. Meteor's subscriptions are super-fast, but as expected, if you doing more work in the server this is going to demand more from your servers.
+That doesn't mean a problem with Meteor. Meteor's subscriptions are super-fast, but as expected, if you doing more work on the server this is going to demand more from your servers.
 
 ## 2.2 Filtering Data
 
@@ -18,9 +18,9 @@ We are not recommending that you remove your subscriptions, the goal here is jus
 
 We are going to split the solution to use both, using sometimes Meteor built-in features and sometimes GraphQL features.
 
-So, in [this step](https://react-tutorial.meteor.com/simple-todos/09-publications.html#9-2-Tasks-Publication) on the Simple Todo tutorial we created a publication the expose all the task data to be used in the client.
+So, in [this step](https://react-tutorial.meteor.com/simple-todos/09-publications.html#9-2-Tasks-Publication) on the Simple Todo tutorial we created a publication that expose all the task data to be used in the client.
 
-We'll keep using the subscription just to keep track in changes on the state of tasks when they're finished or not. So, from all that data, we in keep just the props `_id`, `isChecked`, and `userId`.
+We'll keep using the subscription just to keep track of changes in the state of tasks when they're finished or not. So, from all that data, we in keep just the props `_id`, `isChecked`, and `userId`.
 
 Go ahead and change the `fields` published by your `Meteor.publish` function inside the `tasks` publication.
 
@@ -41,7 +41,7 @@ Your app should look like this now:
 <img width="300px" src="/simple-todos-graphql/assets/step02-tasks-no-name.png"/>
 
 
-This is happening because we're not getting the text data anymore. You can check, all the data that you have in the client, on you Minimongo:
+This is happening because we're not getting the text data anymore. You can check, all the data that you have in the client, on your Minimongo:
 
 
 <img width="600px" src="/simple-todos-graphql/assets/step02-minimongo.png"/>
@@ -49,6 +49,6 @@ This is happening because we're not getting the text data anymore. You can check
 
 As you can see, we just have what we asked for: `_id`, `isChecked`, and `userId`.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step02)
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step02)
 
-In the next step we'll create our first query and using GraphQL and then we are going to have our `text` back in the UI.
+In the next step we'll create our first query using GraphQL and then we are going to have our `text` back in the UI.

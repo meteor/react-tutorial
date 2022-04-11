@@ -1,10 +1,10 @@
 ---
-title: '9: Publications'
+title: '10: Publications'
 ---
 
 Now we have moved all of our app's sensitive code into methods, we need to learn about the other half of Meteor's security story. Until now, we have worked assuming the entire database is present on the client, meaning if we call `Tasks.find()` we will get every task in the collection. That's not good if users of our application want to store privacy-sensitive data. We need a way of controlling which data Meteor sends to the client-side database.
 
-## 9.1: autopublish
+## 10.1: autopublish
 
 Just like with `insecure` in the last step, all new Meteor apps start with the `autopublish` package, which automatically synchronizes all the database contents to the client. So you should remove it:
 
@@ -17,7 +17,7 @@ When the app refreshes, the task list will be empty. Without the `autopublish` p
 - `Meteor.publish`: allows the data to be published from the server to the client;
 - `Meteor.subscribe`: allows the client code to ask for data to the client.
 
-## 9.2: Tasks Publication
+## 10.2: Tasks Publication
 
 You need to add first a publication to your server, this publication should publish all the tasks from the authenticated user. As in the `Methods` you can also use `this.userId` in publication functions to get the authenticated `userId`.
 
@@ -48,7 +48,7 @@ import '/imports/api/tasksMethods';
 import '/imports/api/tasksPublications';
 ```
 
-## 9.3: Tasks Subscription
+## 10.3: Tasks Subscription
 
 Then we can subscribe to that publication in the client.
 
@@ -84,9 +84,9 @@ It's also a good moment for us to refactor our code to use a single `useTracker`
 ..
 ```
 
-## 9.4: Loading state
+## 10.4: Loading state
 
-You should also add a loading state for your app, that means, while the subscription data is not ready you should inform this to your user. To discover if the subscription is ready or not you should get the return of the `subscribe` call, it is an object with the subscription state including the `ready` function that will return a `boolean`. 
+You should also add a loading state for your app, that means, while the subscription data is not ready you should inform to your user. To discover if the subscription is ready or not you should get the return of the `subscribe` call, it is an object with the subscription state including the `ready` function that will return a `boolean`. 
 
 `imports/ui/App.jsx`
 
@@ -125,7 +125,7 @@ Once you have done this, all the tasks will reappear.
 
 Calling `Meteor.publish` on the server registers a publication named `tasks`. When `Meteor.subscribe` is called on the client with the publication name, the client subscribes to all the data from that publication, which in this case is all the tasks in the database for the authenticated user. 
 
-## 9.5: Check User Permission
+## 10.5: Check User Permission
 
 Only the owner of a task should be able to change certain things. You should change your methods to check if the user that is authenticated is the same user that created the tasks.
 
@@ -176,6 +176,6 @@ Why is this important if we are not returning tasks from other users in the clie
 
 This is important because anyone can call Meteor `Methods` using the browser `console`. You can test this using your DevTools console tab and then type and hit enter: `Meteor.call('tasks.remove', 'xtPTsNECC3KPuMnDu');`. If you remove the validation from your remove Method and you pass one valid task `_id` from your database you will be able to remove it.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step09) 
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos/step10) 
 
-In the next step we are going to run the app on mobile environment as a Native app.
+In the next step, we are going to run the app on a mobile environment as a Native app.

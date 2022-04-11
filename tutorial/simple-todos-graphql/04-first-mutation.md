@@ -26,7 +26,7 @@ const tasksCollection = Object.assign(new Mongo.Collection('tasks'), {
 export { tasksCollection as TasksCollection }
 ```
 
-In this way, you can insert as many functions as you want to the collection object, and the cool part, besides calling those function from everywhere, is that the context of the `this` is your collection. So instead of calling `TasksCollection.insert` or `TasksCollection.findOne` you can call `this.insert` or `this.findOne`, respectively.
+In this way, you can insert as many functions as you want into the collection object, and the cool part, besides calling those functions from everywhere, is that the context of the `this` is your collection. So instead of calling `TasksCollection.insert` or `TasksCollection.findOne` you can call `this.insert` or `this.findOne`, respectively.
 
 Now we can use the `save` function in a mutation. Let's create this mutation.
 
@@ -98,9 +98,9 @@ export const TaskForm = () => {
 ```
 
 
-You can notice some things on this code. The first one is that we don't need to call the function `refetch` anymore when adding a task. Now we can use the prop `refetchQueries` and to refetch queries when the mutation is called. The name `Tasks` used here is the same name used in our tasks query.
+You can notice some things in this code. The first one is that we don't need to call the function `refetch` anymore when adding a task. Now we can use the prop `refetchQueries` and to refetch queries when the mutation is called. The name `Tasks` used here is the same name used in our tasks query.
 
-Other thing you may notice is that the function `addTaskMutation` is a Promise, so we can use call the functions `then` and `catch` to do some action when the function succeeds or fails. In our case we are just showing logging messages when something happens.
+Another thing you may notice is that the function `addTaskMutation` is a Promise, so we can use call the functions `then` and `catch` to do some action when the function succeeds or fails. In our case, we are just showing logging messages when something happens.
 
 ## 4.2 Fixing Tests
 

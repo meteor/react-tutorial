@@ -100,9 +100,9 @@ export const App = () => {
   ..
 ```
 
-Notice that in the query `tasksQuery` we just need the `_id` and the `text` as the `isChecked` is coming from the subscription, and we used the `createdAt` to sort the tasks in the server side, so we don't need it in the client side.
+Notice that in the query `tasksQuery` we just need the `_id` and the `text` as the `isChecked` is coming from the subscription, and we used the `createdAt` to sort the tasks on the server side, so we don't need it in the client side.
 
-Now our tasks, fetched with GraphQL, have their status again, and the tasks' status were fetched with a subscription. When you do the changes and refresh your app again, all the tasks' text should now be visible. 
+Now our tasks, fetched with GraphQL, have their status again, and the tasks' status was fetched with a subscription. When you do the changes and refresh your app again, all the tasks' text should now be visible. 
 
 ## 3.2 Refetching Queries
 
@@ -112,9 +112,9 @@ If you try to add or remove a task, nothing will happen until you refresh the pa
 
 Everything was working before (and still it is with the toggle) because we were getting the tasks using the `useTracker` that will automatically fetch the data again if something changes. But now, we're getting the tasks with GraphQL and after an action that changes something in the background, we need a way to call the query again. With GraphQL, we have a couple of ways of doing it.
 
-For now, let's use the function `refetch` that's returned from the hook `useQuery`, alongside with the `data` and the `loading`.
+For now, let's use the function `refetch` that's returned from the hook `useQuery`, alongside the `data` and the `loading`.
 
-We'll need to pass forward this function to the `TaskForm` so we can call the query again as soon as the user adds a new task, and we need to call this function well someone tries to delete a task. The easiest way will be moving the delete function inside the `App` component.
+We'll need to pass forward this function to the `TaskForm` so we can call the query again as soon as the user adds a new task, and we need to call this function well someone tries to delete a task. The easiest way will be to move the delete function inside the `App` component.
 
 `imports/ui/App.jsx`
 
@@ -169,6 +169,6 @@ export const TaskForm = ({ refetch }) => {
 
 Everything should be working again.
 
-> Review: you can check how your code should be in the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step03)
+> Review: you can check how your code should be at the end of this step [here](https://github.com/meteor/react-tutorial/tree/master/src/simple-todos-graphql/step03)
 
 In the next step we'll see how to use a mutation.
