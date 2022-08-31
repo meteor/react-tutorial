@@ -4,20 +4,23 @@ import { TasksCollection } from '/imports/api/TasksCollection';
 import { Task } from './Task';
 import { TaskForm } from './TaskForm';
 
-const toggleChecked = ({ _id, isChecked }) => {
-  TasksCollection.update(_id, {
-    $set: {
-      isChecked: !isChecked,
-    },
-  });
-};
+const toggleChecked =
+  async ({ _id, isChecked }) => {
+    await TasksCollection.updateAsync(_id, {
+      $set: {
+        isChecked: !isChecked,
+      },
+    });
+  };
 
-const deleteTask = ({ _id }) => TasksCollection.remove(_id);
+const deleteTask =
+  async ({ _id }) => TasksCollection.removeAsync(_id);
 
 export const App = () => {
-  const tasks = useTracker(() =>
-    TasksCollection.find({}, { sort: { createdAt: -1 } }).fetch()
+  const tasks = useTracker(async () =>
+    await TasksCollection.find({}, { sort: { createdAt: -1 } }).fetchAsync()
   );
+
 
   return (
     <div className="app">
