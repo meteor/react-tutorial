@@ -4,29 +4,31 @@ import { TasksCollection } from '/imports/api/TasksCollection';
 import { Task } from './Task';
 import { TaskForm } from './TaskForm';
 
-const toggleChecked = ({ _id, isChecked }) => {
-  TasksCollection.update(_id, {
-    $set: {
-      isChecked: !isChecked,
-    },
-  });
-};
+const toggleChecked =
+  async ({ _id, isChecked }) => {
+    await TasksCollection.updateAsync(_id, {
+      $set: {
+        isChecked: !isChecked,
+      },
+    });
+  };
 
-const deleteTask = ({ _id }) => TasksCollection.remove(_id);
+const deleteTask =
+  async ({ _id }) => TasksCollection.removeAsync(_id);
 
 export const App = () => {
   const [hideCompleted, setHideCompleted] = useState(false);
 
   const hideCompletedFilter = { isChecked: { $ne: true } };
 
-  const tasks = useTracker(() =>
-    TasksCollection.find(hideCompleted ? hideCompletedFilter : {}, {
+  const tasks = useTracker(async () =>
+    await TasksCollection.find(hideCompleted ? hideCompletedFilter : {}, {
       sort: { createdAt: -1 },
-    }).fetch()
+    }).fetchAsync()
   );
 
-  const pendingTasksCount = useTracker(() =>
-    TasksCollection.find(hideCompletedFilter).count()
+  const pendingTasksCount = useTracker(async () =>
+    await TasksCollection.find(hideCompletedFilter).countAsync()
   );
 
   const pendingTasksTitle = `${
