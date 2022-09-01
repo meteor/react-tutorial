@@ -22,7 +22,7 @@ export const App = () => {
 
   const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-  const { tasks, pendingTasksCount, isLoading } = useTracker(() => {
+  const { tasks, pendingTasksCount, isLoading } = useTracker(async () => {
     const noDataAvailable = { tasks: [], pendingTasksCount: 0 };
     if (!Meteor.user()) {
       return noDataAvailable;
@@ -33,13 +33,13 @@ export const App = () => {
       return { ...noDataAvailable, isLoading: true };
     }
 
-    const tasks = TasksCollection.find(
+    const tasks = await TasksCollection.find(
       hideCompleted ? pendingOnlyFilter : userFilter,
       {
         sort: { createdAt: -1 },
       }
-    ).fetch();
-    const pendingTasksCount = TasksCollection.find(pendingOnlyFilter).count();
+    ).fetchAsync();
+    const pendingTasksCount = await TasksCollection.find(pendingOnlyFilter).countAsync();
 
     return { tasks, pendingTasksCount };
   });
