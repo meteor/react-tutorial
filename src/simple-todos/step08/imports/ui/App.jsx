@@ -16,7 +16,7 @@ const toggleChecked =
   };
 
 const deleteTask =
-  async ({ _id }) => TasksCollection.removeAsync(_id);
+  async ({ _id }) => await TasksCollection.removeAsync(_id);
 
 export const App = () => {
   const user = useTracker(() => Meteor.user());
