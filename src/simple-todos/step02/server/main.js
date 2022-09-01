@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { TasksCollection } from '/imports/api/TasksCollection';
 
 const insertTask =
-  async (taskText) => TasksCollection.insertAsync({ text: taskText });
+  async (taskText) => await TasksCollection.insertAsync({ text: taskText });
 
 Meteor.startup(async () => {
   if (await TasksCollection.find().countAsync() === 0) {
