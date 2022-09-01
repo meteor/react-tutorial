@@ -16,7 +16,7 @@ const toggleChecked =
   };
 
 const deleteTask =
-  async ({ _id }) => TasksCollection.removeAsync(_id);
+  async ({ _id }) => await TasksCollection.removeAsync(_id);
 
 export const App = () => {
   const user = useTracker(() => Meteor.user());
@@ -34,7 +34,7 @@ export const App = () => {
       return [];
     }
 
-    return TasksCollection.find(
+    return await TasksCollection.find(
       hideCompleted ? pendingOnlyFilter : userFilter,
       {
         sort: { createdAt: -1 },
@@ -47,7 +47,7 @@ export const App = () => {
       return 0;
     }
 
-    return TasksCollection.find(pendingOnlyFilter).countAsync();
+    return await TasksCollection.find(pendingOnlyFilter).countAsync();
   });
 
   const pendingTasksTitle = `${
