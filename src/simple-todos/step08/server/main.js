@@ -3,8 +3,8 @@ import { Accounts } from 'meteor/accounts-base';
 import { TasksCollection } from '/imports/api/TasksCollection';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
-const insertTask = (taskText, user) =>
-  TasksCollection.insert({
+const insertTask = async (taskText, user) =>
+  await TasksCollection.insertAsync({
     text: taskText,
     userId: user._id,
     createdAt: new Date(),
@@ -13,7 +13,7 @@ const insertTask = (taskText, user) =>
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
 
-Meteor.startup(() => {
+Meteor.startup( async () => {
   if (!Accounts.findUserByUsername(SEED_USERNAME)) {
     Accounts.createUser({
       username: SEED_USERNAME,
@@ -22,8 +22,7 @@ Meteor.startup(() => {
   }
 
   const user = Accounts.findUserByUsername(SEED_USERNAME);
-
-  if (TasksCollection.find().count() === 0) {
+  if (await TasksCollection.find().countAsync() === 0) {
     [
       'First Task',
       'Second Task',
@@ -41,8 +40,8 @@ ServiceConfiguration.configurations.upsert(
   {
     $set: {
       loginStyle: 'popup',
-      clientId: '4b9f9c09485b4bba83ba', // insert your clientId here
-      secret: 'f9205f6f03b6c45547e70efe1171dbe0409440df', // insert your secret here
+      clientId: '', // insert your clientId here
+      secret: '', // insert your secret here
     },
   }
 );
