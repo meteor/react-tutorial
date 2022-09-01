@@ -34,7 +34,7 @@ export const App = () => {
       return [];
     }
 
-    return TasksCollection.find(
+    return await TasksCollection.find(
       hideCompleted ? pendingOnlyFilter : userFilter,
       {
         sort: { createdAt: -1 },
