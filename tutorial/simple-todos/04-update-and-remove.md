@@ -45,13 +45,14 @@ Create a function to change your document and pass it along to your `Task` compo
 `imports/ui/App.jsx`
 
 ```js
-const toggleChecked = ({ _id, isChecked }) => {
-  TasksCollection.update(_id, {
-    $set: {
-      isChecked: !isChecked
-    }
-  })
-};
+const toggleChecked =
+  async ({ _id, isChecked }) => {
+    await TasksCollection.updateAsync(_id, {
+      $set: {
+        isChecked: !isChecked,
+      },
+    });
+  };
 
 export const App = () => {
   ..
@@ -89,7 +90,8 @@ Now add the removal logic in the `App`, you need to have a function to delete th
 `imports/ui/App.jsx`
 
 ```js
-const deleteTask = ({ _id }) => TasksCollection.remove(_id);
+const deleteTask =
+  async ({ _id }) => await TasksCollection.removeAsync(_id);
 
 export const App = () => {
   ..
