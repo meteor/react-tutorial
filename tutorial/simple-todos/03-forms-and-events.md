@@ -47,7 +47,7 @@ import { TasksCollection } from '/imports/api/TasksCollection';
 import { TaskForm } from './TaskForm';
 
 export const App = () => {
-  const tasks = useTracker(() => TasksCollection.find({}).fetch());
+  const tasks = useTracker(async () => await TasksCollection.find({}).fetchAsync());
 
   return (
     <div>
@@ -90,17 +90,17 @@ import { TasksCollection } from '/imports/api/TasksCollection';
 export const TaskForm = () => {
   const [text, setText] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!text) return;
 
-    TasksCollection.insert({
+    await TasksCollection.insertAsync({
       text: text.trim(),
-      createdAt: new Date()
+      createdAt: new Date(),
     });
 
-    setText("");
+    setText('');
   };
  
   return (
@@ -129,7 +129,9 @@ Now you just need to make a change that will make users happy: we need to show t
 ..
  
 export const App = () => {
-  const tasks = useTracker(() => TasksCollection.find({}, { sort: { createdAt: -1 } }).fetch());
+  const tasks = useTracker(async () =>
+    await TasksCollection.find({}, { sort: { createdAt: -1 } }).fetchAsync()
+  );
   ..
 ```
 
