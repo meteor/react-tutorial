@@ -4,7 +4,7 @@ import { TasksCollection } from '/imports/api/TasksCollection';
 import { Task } from './Task';
 
 export const App = () => {
-  const tasks = useTracker(() => TasksCollection.find({}).fetch());
+  const tasks = useTracker(async () => await TasksCollection.find({}).fetchAsync());
 
   return (
     <div>
