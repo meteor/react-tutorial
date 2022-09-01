@@ -82,9 +82,9 @@ if (Meteor.isServer) {
       const userId = Random.id();
       let taskId;
 
-      beforeEach(() => {
-        TasksCollection.remove({});
-        taskId = TasksCollection.insert({
+      beforeEach(async () => {
+        await TasksCollection.removeAsync({});
+        taskId = await TasksCollection.insertAsync({
           text: 'Test Task',
           createdAt: new Date(),
           userId,
@@ -121,19 +121,19 @@ if (Meteor.isServer) {
       const userId = Random.id();
       let taskId;
 
-      beforeEach(() => {
-        TasksCollection.remove({});
-        taskId = TasksCollection.insert({
+      beforeEach(async () => {
+        await TasksCollection.removeAsync({});
+        taskId = await TasksCollection.insertAsync({
           text: 'Test Task',
           createdAt: new Date(),
           userId,
         });
       });
 
-      it('can delete owned task', () => {
+      it('can delete owned task', async () => {
         mockMethodCall('tasks.remove', taskId, { context: { userId } });
 
-        assert.equal(TasksCollection.find().count(), 0);
+        assert.equal(await TasksCollection.find().countAsync(), 0);
       });
     });
   });
@@ -162,53 +162,53 @@ if (Meteor.isServer) {
       const userId = Random.id();
       let taskId;
 
-      beforeEach(() => {
-        TasksCollection.remove({});
-        taskId = TasksCollection.insert({
+      beforeEach(async () => {
+        await TasksCollection.removeAsync({});
+        taskId = await TasksCollection.insertAsync({
           text: 'Test Task',
           createdAt: new Date(),
           userId,
         });
       });
 
-      it('can delete owned task', () => {
+      it('can delete owned task', async () => {
         mockMethodCall('tasks.remove', taskId, { context: { userId } });
 
-        assert.equal(TasksCollection.find().count(), 0);
+        assert.equal(await TasksCollection.find().countAsync(), 0);
       });
 
-      it(`can't delete task without an user authenticated`, () => {
+      it('can\'t delete task without an user authenticated', async () => {
         const fn = () => mockMethodCall('tasks.remove', taskId);
         assert.throw(fn, /Not authorized/);
-        assert.equal(TasksCollection.find().count(), 1);
+        assert.equal(await TasksCollection.find().countAsync(), 1);
       });
 
-      it(`can't delete task from another owner`, () => {
+      it('can\'t delete task from another owner', async () => {
         const fn = () =>
           mockMethodCall('tasks.remove', taskId, {
             context: { userId: 'somebody-else-id' },
           });
         assert.throw(fn, /Access denied/);
-        assert.equal(TasksCollection.find().count(), 1);
+        assert.equal(await TasksCollection.find().countAsync(), 1);
       });
 
-      it('can change the status of a task', () => {
-        const originalTask = TasksCollection.findOne(taskId);
+      it('can change the status of a task', async () => {
+        const originalTask = await TasksCollection.findOneAsync(taskId);
         mockMethodCall('tasks.setIsChecked', taskId, !originalTask.isChecked, {
           context: { userId },
         });
 
-        const updatedTask = TasksCollection.findOne(taskId);
+        const updatedTask = await TasksCollection.findOneAsync(taskId);
         assert.notEqual(updatedTask.isChecked, originalTask.isChecked);
       });
 
-      it('can insert new tasks', () => {
+      it('can insert new tasks', async () => {
         const text = 'New Task';
         mockMethodCall('tasks.insert', text, {
           context: { userId },
         });
 
-        const tasks = TasksCollection.find({}).fetch();
+        const tasks = await TasksCollection.find({}).fetchAsync();
         assert.equal(tasks.length, 2);
         assert.isTrue(tasks.some(task => task.text === text));
       });
