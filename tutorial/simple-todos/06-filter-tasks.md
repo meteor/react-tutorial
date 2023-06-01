@@ -32,7 +32,7 @@ export const App = () => {
   ..
 ```
 
-You can read more about the `useState` hook [here](https://reactjs.org/docs/hooks-state.html).
+You can read more about the `useState` hook [here](https://react.dev/reference/react/useState).
 
 We recommend that you add your hooks always in the top of your components, so it will be easier to avoid some problems, like always running them in the same order.
 
