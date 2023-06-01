@@ -109,7 +109,7 @@ We can accomplish that by returning the `LoginForm` component when we don't have
 
 You should first wrap the 3 components (form, filter, and list) in a `<Fragment>`, Fragment is a special component in React that you can use to group components together without affecting your final DOM, it means without affecting your UI as it is not going to introduce other elements in the HTML.
 
-> Read more about Fragments [here](https://reactjs.org/docs/fragments.html)
+> Read more about Fragments [here](https://react.dev/reference/react/Fragment)
 
 So you can get your authenticated user or null from `Meteor.user()`, you should wrap it in a `useTracker` hook for it to be reactive. Then you can return the `Fragment` with Tasks and everything else or `LoginForm` based on the user being present or not in the session.
 
