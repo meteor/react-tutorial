@@ -179,9 +179,8 @@ We would like to take a moment here to think, the folder where the collection fi
 
 This change is not required but it's recommended to keep our names consistent with reality.
 
-Remember to fix your imports, you have 4 imports to `TasksCollection` in the following files:
+Remember to fix your imports, you have 3 imports to `TasksCollection` in the following files:
 - `imports/api/tasksMethods.js`
-- `imports/ui/TaskForm.jsx`
 - `imports/ui/App.jsx`
 - `server/main.js`
 
