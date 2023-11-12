@@ -12,9 +12,7 @@ logo:
 sidebar_categories:
   null:
     - index
-    - changelog
   Simple Todos:
-    - simple-todos/index
     - simple-todos/01-creating-app
     - simple-todos/02-collections
     - simple-todos/03-forms-and-events
