@@ -6,15 +6,17 @@ import { Task } from './Task';
 import { TaskForm } from './TaskForm';
 import { LoginForm } from './LoginForm';
 
-const toggleChecked = ({ _id, isChecked }) => {
-  TasksCollection.update(_id, {
-    $set: {
-      isChecked: !isChecked,
-    },
-  });
-};
+const toggleChecked =
+  async ({ _id, isChecked }) => {
+    await TasksCollection.updateAsync(_id, {
+      $set: {
+        isChecked: !isChecked,
+      },
+    });
+  };
 
-const deleteTask = ({ _id }) => TasksCollection.remove(_id);
+const deleteTask =
+  async ({ _id }) => await TasksCollection.removeAsync(_id);
 
 export const App = () => {
   const user = useTracker(() => Meteor.user());
@@ -27,25 +29,25 @@ export const App = () => {
 
   const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-  const tasks = useTracker(() => {
+  const tasks = useTracker(async () => {
     if (!user) {
       return [];
     }
 
-    return TasksCollection.find(
+    return await TasksCollection.find(
       hideCompleted ? pendingOnlyFilter : userFilter,
       {
         sort: { createdAt: -1 },
       }
-    ).fetch();
+    ).fetchAsync();
   });
 
-  const pendingTasksCount = useTracker(() => {
+  const pendingTasksCount = useTracker(async () => {
     if (!user) {
       return 0;
     }
 
-    return TasksCollection.find(pendingOnlyFilter).count();
+    return await TasksCollection.find(pendingOnlyFilter).countAsync();
   });
 
   const pendingTasksTitle = `${

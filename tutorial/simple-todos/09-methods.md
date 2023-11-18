@@ -58,44 +58,44 @@ import { check } from 'meteor/check';
 import { TasksCollection } from './TasksCollection';
  
 Meteor.methods({
-  'tasks.insert'(text) {
+  async 'tasks.insert'(text) {
     check(text, String);
 
     if (!this.userId) {
       throw new Meteor.Error('Not authorized.');
     }
 
-    TasksCollection.insert({
+    await TasksCollection.insertAsync({
       text,
-      createdAt: new Date,
+      createdAt: new Date(),
       userId: this.userId,
-    })
+    });
   },
 
-  'tasks.remove'(taskId) {
+  async 'tasks.remove'(taskId) {
     check(taskId, String);
 
     if (!this.userId) {
       throw new Meteor.Error('Not authorized.');
     }
 
-    TasksCollection.remove(taskId);
+    await TasksCollection.removeAsync(taskId);
   },
 
-  'tasks.setIsChecked'(taskId, isChecked) {
+  async 'tasks.setIsChecked'(taskId, isChecked) {
     check(taskId, String);
     check(isChecked, Boolean);
- 
+
     if (!this.userId) {
       throw new Meteor.Error('Not authorized.');
     }
 
-    TasksCollection.update(taskId, {
+    await TasksCollection.updateAsync(taskId, {
       $set: {
-        isChecked
-      }
+        isChecked,
+      },
     });
-  }
+  },
 });
 ```
 
@@ -128,7 +128,7 @@ import React, { useState } from 'react';
 export const TaskForm = () => {
   const [text, setText] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!text) return;

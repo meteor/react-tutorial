@@ -62,10 +62,10 @@ Now, if the user wants to see only pending tasks you can add a filter to your se
 ..
   const hideCompletedFilter = { isChecked: { $ne: true } };
 
-  const tasks = useTracker(() =>
-    TasksCollection.find(hideCompleted ? hideCompletedFilter : {}, {
+  const tasks = useTracker(async () =>
+    await TasksCollection.find(hideCompleted ? hideCompletedFilter : {}, {
       sort: { createdAt: -1 },
-    }).fetch()
+    }).fetchAsync()
   );
 ..
 ```
@@ -93,8 +93,8 @@ You should avoid adding zero to your app bar when there are no pending tasks.
 `imports/ui/App.jsx`
 ```js
 ..
-  const pendingTasksCount = useTracker(() =>
-    TasksCollection.find(hideCompletedFilter).count()
+  const pendingTasksCount = useTracker(async () =>
+    await TasksCollection.find(hideCompletedFilter).countAsync()
   );
 
   const pendingTasksTitle = `${

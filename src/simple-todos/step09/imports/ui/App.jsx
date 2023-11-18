@@ -22,25 +22,25 @@ export const App = () => {
 
   const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-  const tasks = useTracker(() => {
+  const tasks = useTracker(async () => {
     if (!user) {
       return [];
     }
 
-    return TasksCollection.find(
+    return await TasksCollection.find(
       hideCompleted ? pendingOnlyFilter : userFilter,
       {
         sort: { createdAt: -1 },
       }
-    ).fetch();
+    ).fetchAsync();
   });
 
-  const pendingTasksCount = useTracker(() => {
+  const pendingTasksCount = useTracker(async () => {
     if (!user) {
       return 0;
     }
 
-    return TasksCollection.find(pendingOnlyFilter).count();
+    return await TasksCollection.find(pendingOnlyFilter).countAsync();
   });
 
   const pendingTasksTitle = `${

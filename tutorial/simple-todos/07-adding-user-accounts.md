@@ -263,8 +263,8 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { TasksCollection } from '/imports/api/TasksCollection';
 
-const insertTask = (taskText, user) =>
-  TasksCollection.insert({
+const insertTask = async (taskText, user) =>
+  await TasksCollection.insertAsync({
     text: taskText,
     userId: user._id,
     createdAt: new Date(),
@@ -273,7 +273,7 @@ const insertTask = (taskText, user) =>
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
 
-Meteor.startup(() => {
+Meteor.startup( async () => {
   if (!Accounts.findUserByUsername(SEED_USERNAME)) {
     Accounts.createUser({
       username: SEED_USERNAME,
@@ -283,7 +283,7 @@ Meteor.startup(() => {
 
   const user = Accounts.findUserByUsername(SEED_USERNAME);
 
-  if (TasksCollection.find().count() === 0) {
+  if (await TasksCollection.find().countAsync() === 0) {
     [
       'First Task',
       'Second Task',
@@ -313,25 +313,25 @@ Now you can filter the tasks in the UI by the authenticated user. Use the user `
 
     const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-    const tasks = useTracker(() => {
+    const tasks = useTracker(async () => {
       if (!user) {
         return [];
       }
-
-      return TasksCollection.find(
+    
+      return await TasksCollection.find(
         hideCompleted ? pendingOnlyFilter : userFilter,
         {
           sort: { createdAt: -1 },
         }
-      ).fetch();
+      ).fetchAsync();
     });
-
-    const pendingTasksCount = useTracker(() => {
+    
+    const pendingTasksCount = useTracker(async () => {
       if (!user) {
         return 0;
       }
-
-      return TasksCollection.find(pendingOnlyFilter).count();
+    
+      return await TasksCollection.find(pendingOnlyFilter).countAsync();
     });
 ..
 
@@ -347,12 +347,12 @@ Also, update the `insert` call to include the field `userId` in the `TaskForm`. 
 export const TaskForm = ({ user }) => {
   const [text, setText] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!text) return;
 
-    TasksCollection.insert({
+    await TasksCollection.insertAsync({
       text: text.trim(),
       createdAt: new Date(),
       userId: user._id

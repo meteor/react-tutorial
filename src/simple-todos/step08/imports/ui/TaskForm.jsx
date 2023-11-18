@@ -4,12 +4,12 @@ import { TasksCollection } from '/imports/api/TasksCollection';
 export const TaskForm = ({user}) => {
   const [text, setText] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!text) return;
 
-    TasksCollection.insert({
+    await TasksCollection.insertAsync({
       text: text.trim(),
       createdAt: new Date(),
       userId: user._id

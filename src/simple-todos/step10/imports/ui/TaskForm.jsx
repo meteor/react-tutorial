@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 export const TaskForm = () => {
   const [text, setText] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!text) return;

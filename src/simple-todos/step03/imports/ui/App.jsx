@@ -5,8 +5,8 @@ import { Task } from './Task';
 import { TaskForm } from './TaskForm';
 
 export const App = () => {
-  const tasks = useTracker(() =>
-    TasksCollection.find({}, { sort: { createdAt: -1 } }).fetch()
+  const tasks = useTracker(async () =>
+    await TasksCollection.find({}, { sort: { createdAt: -1 } }).fetchAsync()
   );
 
   return (
