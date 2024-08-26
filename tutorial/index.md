@@ -27,7 +27,7 @@ If you see `..` in the code samples, it means that we are not showing all the co
 
 ## Community Support
 
-If you have questions about how to get started, please ask the community on our [Forums](https://forums.meteor.com) or on [Community Slack](https://join.slack.com/t/meteor-community/shared_invite/enQtODA0NTU2Nzk5MTA3LWY5NGMxMWRjZDgzYWMyMTEyYTQ3MTcwZmU2YjM5MTY3MjJkZjQ0NWRjOGZlYmIxZjFlYTA5Mjg4OTk3ODRiOTc). We'd love to have you there!
+If you have questions about how to get started, please ask the community on our [Forums](https://forums.meteor.com) or on [Discord](https://discord.gg/hZkTCaVjmT). We'd love to have you there!
 
 ## Where to Learn More
 
